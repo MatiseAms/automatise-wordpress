@@ -1,0 +1,33 @@
+{
+	"name": "create-matise-wordpress",
+	"version": "0.0.13",
+	"description": "Create Matise Wordpress App.",
+	"bin": "cli.js",
+	"files": [
+		"cli.js",
+		"sao.js",
+		"lib/",
+		"template/"
+	],
+	"repository": {
+		"url": "git+https://github.com/matiseams/create-matise-wordpress.git",
+		"type": "git"
+	},
+	"scripts": {
+		"try": "rm -rf fissa && node cli.js fissa"
+	},
+	"dependencies": {
+		"axios": "^0.19.0",
+		"minimist": "^1.2.0",
+		"sao": "0.22.17",
+		"superb": "^4.0.0"
+	},
+	"devDependencies": {},
+	"authors": [
+		"Cyd Stumpel <cyd@matise.nl>",
+		"Dennis Spierenburg <dennis@matise.nl>",
+		"Sil van Diepen <sil@matise.nl>",
+		"Stephan Hoogland <stephan@matise.nl>"
+	],
+	"license": "MIT"
+}

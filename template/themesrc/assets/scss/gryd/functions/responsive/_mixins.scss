@@ -1,0 +1,48 @@
+@function grid-mq-min($grid-size, $boundary-px) {
+	$max-screenwidth: ($boundary-px/ $grid-size) * $grid-columns;
+	$result: 'only screen and (max-width: #{$max-screenwidth}px)';
+	@return $result;
+}
+
+@function grid-mq-max($grid-size, $boundary-px) {
+	$min-screenwidth: ($boundary-px / $grid-size) * $grid-columns;
+	$result: 'only screen and (min-width: #{$min-screenwidth}px)';
+	@return $result;
+}
+
+// Default use:
+//  @include min-('font-size',2,24);
+// font is 2 grids until it becomes smaller than 24 pixels
+
+
+@mixin min-($css-property, $grid-size, $boundary-px) {
+	@include min-max($css-property, $grid-size, $boundary-px, 'min') {
+		@content;
+	}
+}
+
+// Default use:
+//  @include max-('font-size',2,240);
+// font is 2 grids until it becomes bigger than than 240 pixels
+
+
+@mixin max-($css-property, $grid-size, $boundary-px) {
+	@include min-max($css-property, $grid-size, $boundary-px, 'max') {
+		@content;
+	}
+}
+
+//
+// Logic for the min and max function
+//
+@mixin min-max($css-property, $grid-size, $boundary-px, $min-max){
+	$mq: grid-mq-min($grid-size, $boundary-px);
+	//overwrite if you ask for max:
+	@if ($min-max == 'max') {
+		$mq: grid-mq-max($grid-size, $boundary-px);
+	}
+	@media #{$mq} {
+		#{$css-property}: #{$boundary-px}px;
+		@content;
+	}
+}

@@ -1,0 +1,9 @@
+@import 'embed';
+@import 'spacing';
+@import 'usage';
+
+// Load all fonts
+@include font-load($font-primary);
+@include font-load($font-secondary);
+@include font-load($font-tertiary);
+@include font-load($font-quaternary);

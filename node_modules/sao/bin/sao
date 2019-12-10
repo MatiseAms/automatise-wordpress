@@ -1,0 +1,134 @@
+#!/usr/bin/env node
+'use strict'
+const cac = require('cac')
+const ora = require('ora')
+const chalk = require('chalk')
+const table = require('text-table')
+const utils = require('../lib/utils')
+const log = require('../lib/utils/log')
+const configUtils = require('../lib/utils/config')
+
+const cli = cac()
+
+const printTemplates = ([packages, repos]) => {
+  const tildify = require('tildify')
+
+  console.log(chalk.cyan(`\n  Templates installed in ${tildify(configUtils.packagesDir)} from npm:\n`))
+
+  if (packages.length === 0) {
+    console.log('  none')
+  } else {
+    const highlightPackageName = name => /^template-/.test(name)
+      ? name.replace(/-([\s\S]+)/, (m, p1) => `-${chalk.bold(p1)}`)
+      : chalk.bold(name)
+    console.log(table(packages.map(item => {
+      const pkg = utils.readTemplatePkg(item)
+      return [
+        `  ${
+          /^@/.test(item)
+            ? item.replace(/@([^\/]+)\/([\s\S]+)/, (m, p1, p2) => `@${p1}/${highlightPackageName(p2)}`)
+            : highlightPackageName(item)
+        }`,
+        chalk.dim(`v${pkg.version}`)
+      ]
+    })))
+  }
+
+  console.log(chalk.cyan(`\n  Templates installed in ${tildify(configUtils.reposDir)} from git:\n`))
+
+  if (repos.length === 0) {
+    console.log('  none')
+  } else {
+    for (const repo of repos) {
+      console.log(`  ${repo.replace(/%%([\s\S]+)/, (m, p1) => `/${chalk.bold(p1)}`)}`)
+    }
+  }
+
+  console.log()
+}
+
+const defaultCommand = cli.command('*', 'Generate a new project', (input, flags) => {
+  const template = input[0]
+
+  if (flags.templates) {
+    return utils.getTemplates().then(printTemplates).catch(err => {
+      console.log(err.stack)
+    })
+  }
+
+  if (!template) {
+    return cli.showHelp()
+  }
+
+  const sao = require('../lib')
+
+  const spinner = ora()
+  sao.on('download:start', () => {
+    spinner.text = 'Downloading...'
+    spinner.start()
+  })
+  sao.on('download:stop', () => {
+    spinner.stop()
+  })
+  sao.on('install-template:start', (packageName, pm) => {
+    console.log(chalk.yellow(`> Installing ${packageName} with ${pm}...`))
+  })
+
+  const options = Object.assign({
+    template,
+    targetPath: input[1]
+  }, flags)
+
+  return sao(options)
+    .catch(err => {
+      spinner.stop()
+      if (err.name === 'SAOError') {
+        log.error(err.message)
+      } else if (err.name === 'HTTPError') {
+        log.error(`${err.statusMessage}: ${err.host}${err.path}`)
+      } else {
+        log.error(err.stack)
+      }
+      process.exit(1)
+    })
+})
+
+defaultCommand
+  .option('config', 'Use custom config file')
+  .option('install', {
+    desc: 'Same as --update (deprecated)'
+  })
+  .option('update', {
+    alias: 'u',
+    desc: 'Update cached template before generating',
+    type: 'boolean'
+  })
+  .option('yes', {
+    alias: ['y', 'mockPrompts'],
+    desc: 'Skip prompt and use default values'
+  })
+  .option('remove-store', {
+    desc: 'Remove stored prompt answers',
+    type: 'boolean'
+  })
+  .option('skip-store', {
+    desc: 'Skip stored prompt answers, i.e. do not use them',
+    type: 'boolean'
+  })
+  .option('templates', {
+    desc: 'Show installed templates',
+    type: 'boolean'
+  })
+  .option('force-npm', {
+    desc: 'Always use npm^5 instead of yarn to install templates and dependencies'
+  })
+  .option('clone', {
+    desc: 'Use git clone instead of an http download',
+    type: 'boolean'
+  })
+  .option('update-notify', {
+    desc: 'Show notifier when relevant template has updates',
+    default: true
+  })
+
+cli.parse()

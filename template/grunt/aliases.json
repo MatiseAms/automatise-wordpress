@@ -1,0 +1,8 @@
+{
+	"default": ["notify", "dev", "watch"],
+	"standard": ["eslint", "clean:dist", "copy:theme", "copy:vendor"],
+	"dev": ["standard", "copy:config_dev"],
+	"staging": ["standard", "copy:config_staging"],
+	"dist": ["standard", "copy:config_live"],
+	"getdb": ["shell:pulldatabase"]
+}

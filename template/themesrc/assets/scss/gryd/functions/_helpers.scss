@@ -1,0 +1,148 @@
+// str-replace function
+// --------------------------
+/// Split a string by a given string into a list.
+/// @access public
+/// @group string utilities
+/// @type String
+/// @output String
+/// @parameter String String
+
+// Make str replace accept lists.
+@function str-replace($haystack, $needles, $replacers: '') {
+	// Check if the $needle argument is a list and based of that
+	// go through the list replace all instances.
+	// Also check if both needle and haystack are lists. If the list are the same length,
+	// All items in the haystack will be replaced with all items in the needles.
+
+	@if length($needles) == 1 {
+		$needles: list-to-str($needles);
+	}
+	@if length($replacers) == 1 {
+		$replacers: list-to-str($replacers);
+	}
+
+	@if type-of($needles) == 'list' and type-of($replacers) == 'list' {
+		@if length($needles) == length($replacers) {
+			// Check if the $needle argument is a string or a list and based of that
+			// go through the list or string to replace all instances.
+			@for $i from 1 through length($needles) {
+				@if str-contains($haystack, nth($needles, $i)) {
+					$haystack: str-replace-func(
+						$haystack,
+						nth($needles, $i),
+						nth($replacers, $i)
+					);
+				}
+			}
+		} @else {
+			@if type-of($replacers) == 'list' {
+				$replacers: list-to-str($replacers);
+			}
+			@for $i from 1 through length($needles) {
+				@if str-contains($haystack, nth($needles, $i)) {
+					$haystack: str-replace-func($haystack, nth($needles, $i), $replacers);
+				}
+			}
+			@return $haystack;
+		}
+		@return $haystack;
+	}
+	// If only the needle is a list, just replace all instance of the
+	// strings in this list with the default replacer.
+	@else if type-of($needles) == 'list' {
+		@each $needles in $needles {
+			@if type-of($replacers) == 'list' {
+				$replacers: list-to-str($replacers);
+			}
+			$haystack: str-replace-func($haystack, $needles, $replacers);
+		}
+		@return $haystack;
+	}
+	// If $needle and haystack are normal strings, just find the needles
+	// and replace those.
+	@else {
+		@return str-replace-func($haystack, $needles, $replacers);
+	}
+}
+
+// str-replace-func function
+// --------------------------
+/// The actual replacing function used in str-replace
+/// @access public
+/// @group string utilities
+/// @type String
+/// @output String
+/// @parameter String
+
+// The str replace function
+@function str-replace-func($haystack, $needle, $replace: '') {
+	// First make sure needle nor haystack are empty values;
+	@if $needle == ' ' {
+		$index: str-index($haystack, $needle);
+		@if $index {
+			@return str-slice($haystack, 1, $index - 1) + $replace +
+				str-replace(
+					str-slice($haystack, $index + str-length($needle)),
+					$needle,
+					$replace
+				);
+		}
+	}
+
+	@if type-of($haystack) == null or type-of($needle) == null {
+		@return $haystack;
+	} @else {
+		// And check if the needle and haystack are actually strs, otherwise warn.
+		@if type-of($haystack) == 'string' and type-of($needle) == 'string' {
+			$index: str-index($haystack, $needle);
+			@if $index {
+				@return str-slice($haystack, 1, $index - 1) + $replace +
+					str-replace(
+						str-slice($haystack, $index + str-length($needle)),
+						$needle,
+						$replace
+					);
+			}
+		}
+		@if type-of($haystack) != 'string' {
+			@warn '#{$haystack}(#{type-of($haystack)}) is not a str.';
+		}
+		@if type-of($needle) != 'string' {
+			@warn '#{$needle}(#{type-of($needle)}) is not a str.';
+		}
+	}
+	@return $haystack;
+}
+
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function to-string($list, $glue: '', $is-nested: false) {
+	$result: null;
+
+	@for $i from 1 through length($list) {
+		$e: nth($list, $i);
+
+		@if type-of($e) == list {
+			$result: $result#{to-string($e, $glue, true)};
+		} @else {
+			$result: if(
+				$i != length($list) or $is-nested,
+				$result#{$e}#{$glue},
+				$result#{$e}
+			);
+		}
+	}
+
+	@return $result;
+}

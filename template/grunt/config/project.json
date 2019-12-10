@@ -1,0 +1,14 @@
+{
+	"themesrc": {
+		"root": "themesrc/"
+	},
+	"themedist": {
+		"root": "public/content/themes/<%= packageName %>/",
+		"vendor": "public/content/themes/<%= packageName %>/vendor/",
+		"browserify": "browserify/"
+	},
+	"wpconfig": {
+		"src": "wpconfig/",
+		"dist": "public/"
+	}
+}

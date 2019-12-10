@@ -1,0 +1,164 @@
+$base-font-path: '~assets/fonts' !default; //
+$font-primary: null !default;
+$font-secondary: null !default;
+$font-tertiary: null !default;
+$font-quaternary: null !default;
+
+
+@function convertToFontname($font, $convert: false) {
+	$family: map-get($font, font-family);
+	$font-name: "";
+	@if type-of(map-get($font, font-family)) == "string" {
+		$font-name: nth(str-split($family, ","), 1);
+	} @else if type-of($family) == "list" {
+		$font-name: nth($family, 1);
+	}
+	@if $convert {
+		$font-name: str-replace($font-name, " ", "");
+	}
+	@return $font-name;
+}
+
+@function font-quotes($values) {
+	$list: $values;
+	@if type-of($values) != "list" {
+		$list: #{$values};
+	} @else {
+		$newlist: ();
+		@each $item in $list {
+			@if str-index($item, " ") {
+				$item: '"#{$item}"';
+			}
+			$newlist: append($newlist, $item, comma);
+		}
+		$list: $newlist;
+	}
+	@return $list;
+}
+
+@function font-weight($weight, $map: false) {
+	@if $map {
+		$font-weights: ();
+		$font-weights: set-weights($map, $font-weights);
+		@if map-has-key($font-weights, $weight) {
+			@return map-get($font-weights, $weight);
+		} @else {
+			@warn '#{$weight} does not exist in current font-weights.';
+			@return null;
+		}
+	} @else {
+		@if type-of($font-primary) !=
+			"map"
+			and
+			type-of($font-secondary) !=
+			"map"
+			and
+			type-of($font-tertiary) !=
+			"map"
+			and
+			type-of($font-quaternary) !=
+			"map"
+		{
+			@warn 'there are not fonts defined to create weights';
+			@return null;
+		} @else {
+			// Combine all the fonts-weights:
+			$font-weights: ();
+			$font-weights: set-weights($font-quaternary, $font-weights);
+			$font-weights: set-weights($font-tertiary, $font-weights);
+			$font-weights: set-weights($font-secondary, $font-weights);
+			$font-weights: set-weights($font-primary, $font-weights);
+			@if map-has-key($font-weights, $weight) {
+				@return map-get($font-weights, $weight);
+			} @else {
+				@warn '#{$weight} does not exist in current font-weights.';
+				@return null;
+			}
+		}
+	}
+}
+
+@function set-weights($font-map, $weights) {
+	@if type-of($font-map) == "map" {
+		@if map-has-key($font-map, "weights") {
+			@return map-merge($weights, map-get($font-map, "weights"));
+		} @else {
+			@return $weights;
+		}
+	} @else {
+		@return $weights;
+	}
+}
+
+@function font-weight($weight, $map: false) {
+	@if $map {
+		$font-weights: ();
+		$font-weights: set-weights($map, $font-weights);
+		@if map-has-key($font-weights, $weight) {
+			@return map-get($font-weights, $weight);
+		} @else {
+			@warn '#{$weight} does not exist in current font-weights.';
+			@return null;
+		}
+	} @else {
+		@if type-of($font-primary) !=
+			"map"
+			and
+			type-of($font-secondary) !=
+			"map"
+			and
+			type-of($font-tertiary) !=
+			"map"
+			and
+			type-of($font-quaternary) !=
+			"map"
+		{
+			@warn 'there are not fonts defined to create weights';
+			@return null;
+		} @else {
+			// Combine all the fonts-weights:
+			$font-weights: ();
+			$font-weights: set-weights($font-quaternary, $font-weights);
+			$font-weights: set-weights($font-tertiary, $font-weights);
+			$font-weights: set-weights($font-secondary, $font-weights);
+			$font-weights: set-weights($font-primary, $font-weights);
+			@if map-has-key($font-weights, $weight) {
+				@return map-get($font-weights, $weight);
+			} @else {
+				@warn '#{$weight} does not exist in current font-weights.';
+				@return null;
+			}
+		}
+	}
+}
+
+@function set-weights($font-map, $weights) {
+	@if type-of($font-map) == "map" {
+		@if map-has-key($font-map, "weights") {
+			@return map-merge($weights, map-get($font-map, "weights"));
+		} @else {
+			@return $weights;
+		}
+	} @else {
+		@return $weights;
+	}
+}
+
+//
+// Define where to use the font directly from the embed
+//
+@mixin font-use($use, $family) {
+	@if output(typography-usage) {
+		@if (type-of($use) == 'list') {
+			@each $selector in $use {
+				#{$selector} {
+					font-family: #{font-quotes($family)};
+				}
+			}
+		} @else {
+			#{$use} {
+				font-family: #{font-quotes($family)};
+			}
+		}
+	}
+}

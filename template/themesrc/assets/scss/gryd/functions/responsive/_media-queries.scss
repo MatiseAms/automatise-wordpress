@@ -1,0 +1,55 @@
+//
+// Return a media query with min and max values
+//
+
+@function create-media-query($min: 0, $max: 0) {
+	@if $min == null and $max > 0 {
+		@return 'only screen and (max-width: #{strip-unit($max)}px)';
+	} @else if $max > 0 {
+		@return 'only screen and (min-width: #{strip-unit($min)}px) and (max-width: #{strip-unit($max)}px)';
+	} @else if $min > 0 {
+		@return 'only screen and (min-width: #{strip-unit($min)}px)';
+	}
+}
+
+$media-queries: (
+	'small-only': create-media-query(0, map-get($grid-breakpoints, 'small')),
+	'medium-only': create-media-query(map-get($grid-breakpoints, 'small'), map-get($grid-breakpoints, 'medium')),
+	'medium-up': create-media-query(map-get($grid-breakpoints, 'small'), 9999),
+	'medium-down': create-media-query(0, map-get($grid-breakpoints, 'medium')),
+	'large-only': create-media-query(map-get($grid-breakpoints, 'medium'), map-get($grid-breakpoints, 'large')),
+	'large-up': create-media-query(map-get($grid-breakpoints, 'medium'), 9999),
+	'large-down': create-media-query(0, map-get($grid-breakpoints, 'large')),
+	'mediumlarge-only': create-media-query(map-get($grid-breakpoints, 'medium'), map-get($grid-breakpoints, 'mediumlarge')),
+	'mediumlarge-up': create-media-query(map-get($grid-breakpoints, 'medium'), 9999),
+	'mediumlarge-down': create-media-query(0, map-get($grid-breakpoints, 'mediumlarge')),
+	'xlarge-only': create-media-query(map-get($grid-breakpoints, 'large'), map-get($grid-breakpoints, 'xlarge')),
+	'xlarge-up': create-media-query(map-get($grid-breakpoints, 'large'), 9999),
+	'xlarge-down': create-media-query(0, map-get($grid-breakpoints, 'xlarge')),
+	'xxlarge-only': create-media-query(map-get($grid-breakpoints, 'xlarge'), map-get($grid-breakpoints, 'xxlarge')),
+	'xxlarge-up': create-media-query(map-get($grid-breakpoints, 'xlarge'), 9999),
+	'xxlarge-down': create-media-query(0, 9999),
+	'landscape': 'screen and (orientation: landscape)',
+	'portrait': 'screen and (orientation: portrait)'
+);
+
+//
+// Variables for media queries, easy to use in the frontend by
+// using `@media #{$small-only} { .element{ display: none; }};` for instance.
+//
+$small-only: map-get($media-queries, 'small-only'); //
+$medium-only: map-get($media-queries, 'medium-only'); //
+$medium-up: map-get($media-queries, 'medium-up'); //
+$medium-down: map-get($media-queries, 'medium-down'); //
+$large-only: map-get($media-queries, 'large-only'); //
+$large-up: map-get($media-queries, 'large-up'); //
+$large-down: map-get($media-queries, 'large-down'); //
+$mediumlarge-only: map-get($media-queries, 'mediumlarge-only'); //
+$mediumlarge-up: map-get($media-queries, 'mediumlarge-up'); //
+$mediumlarge-down: map-get($media-queries, 'mediumlarge-down'); //
+$xlarge-only: map-get($media-queries, 'xlarge-only'); //
+$xlarge-up: map-get($media-queries, 'xlarge-up'); //
+$xlarge-down: map-get($media-queries, 'xlarge-down'); //
+$xxlarge-only: map-get($media-queries, 'xxlarge-only'); //
+$xxlarge-up: map-get($media-queries, 'xxlarge-up'); //
+$xxlarge-down: map-get($media-queries, 'xxlarge-down'); //

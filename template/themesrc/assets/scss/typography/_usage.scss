@@ -1,0 +1,22 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+li {
+	color: inherit;
+	span, a {
+		font-family: inherit;
+		color: inherit;
+	}
+}
+
+h1 {
+	font-size: grid(2);
+	line-height: 1;
+	@include min-('font-size', 2, 24);
+	@include max-('font-size', 2, 240);
+}
