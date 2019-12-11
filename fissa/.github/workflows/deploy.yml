@@ -1,0 +1,63 @@
+on: push
+name: Build and Deploy
+jobs:
+  build:
+    name: Test and deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Composer Action
+      uses: MilesChou/composer-action@v0.0.1
+      env:
+        COMPOSER_AUTH: '{"github-oauth": {"github.com": "8f29ef6d9164c2487843d7f171727d6ef4b33507"}}'
+      with:
+        args: install
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm install --ignore-scripts
+    - name: Add commit to file
+      uses: ./.github/actions/node
+    - name: build production
+      if: github.ref == 'refs/heads/master'
+      run: npm run production
+    - name: sftp theme to flywheel
+      if: github.ref == 'refs/heads/master'
+      uses: ./.github/actions/sftp
+      env:
+        LOCAL_PATH: public/content/themes/[theme_name]
+        REMOTE_PATH: org-matise/[project_name]/wp-content/themes
+        SFTP_HOST: sftp.flywheelsites.com
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_USER: cyds
+    - name: sftp matise-wp-core plugin to flywheel
+      if: github.ref == 'refs/heads/master'
+      uses: ./.github/actions/sftp
+      env:
+        LOCAL_PATH: public/content/plugins/matise-wp-core
+        REMOTE_PATH: org-matise/[project_name]/wp-content/plugins
+        SFTP_HOST: sftp.flywheelsites.com
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_USER: cyds
+    - name: build staging
+      if: github.ref == 'refs/heads/staging'
+      run: npm run staging
+    - name: sftp theme to flywheel staging
+      if: github.ref == 'refs/heads/staging'
+      uses: ./.github/actions/sftp
+      env:
+        LOCAL_PATH: public/content/themes/[theme_name]
+        REMOTE_PATH: org-matise/[project_name]_staging/wp-content/themes
+        SFTP_HOST: sftp.flywheelsites.com
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_USER: cyds
+    - name: sftp matise-wp-core plugin to flywheel staging
+      if: github.ref == 'refs/heads/staging'
+      uses: ./.github/actions/sftp
+      env:
+        LOCAL_PATH: public/content/plugins/matise-wp-core
+        REMOTE_PATH: org-matise/[project_name]_staging/wp-content/plugins
+        SFTP_HOST: sftp.flywheelsites.com
+        SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        SFTP_USER: cyds
+

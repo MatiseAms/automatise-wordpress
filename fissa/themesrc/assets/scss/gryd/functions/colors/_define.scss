@@ -1,0 +1,15 @@
+// --------------------------------------
+//    Define the default color set
+// ------------------------------------
+
+$default-color-set: $color-default !default;
+$custom-color-set: null !default;
+
+// ---------------------------------------------------------------------------------------------
+//    If you defined custom colors, we will extend the existing colorset with these colors.
+// -------------------------------------------------------------------------------------------
+
+
+@if variable-exists(custom-colors) {
+	$custom-color-set: map-merge($default-color-set, $custom-colors);
+}

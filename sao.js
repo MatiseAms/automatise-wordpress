@@ -58,9 +58,14 @@ module.exports = {
 		};
 	},
 	skipInterpolation: [
+		'grunt/browserify.js',
 		'grunt/clean.js',
 		'grunt/copy.js',
+		'grunt/csso.js',
 		'grunt/eslint.js',
+		'grunt/notify.js',
+		'grunt/postcss.js',
+		'grunt/sass.js',
 		'grunt/uglify.js',
 		'grunt/watch.js'
 	],
@@ -69,7 +74,7 @@ module.exports = {
 			gitignore: '.gitignore',
 			'_package.json': 'package.json',
 			'_composer.json': 'composer.json',
-			'_eslintrc.js': '.eslintrc.js'
+			'_eslintrc.json': '.eslintrc.json'
 		};
 
 		return { ...moveable };
@@ -89,7 +94,7 @@ module.exports = {
 		console.log(`    npm run dev`);
 		console.log(`    - Install wordpress`);
 		console.log(`    - Activate your theme`);
-		console.log(`    - Switch to pretty permalinks to get your api going\n`);
+		console.log(`    - Start developing!`);
 		console.log(chalk.bold(`  To build & start for production:\n`));
 		cd();
 		console.log(`    npm run staging`);

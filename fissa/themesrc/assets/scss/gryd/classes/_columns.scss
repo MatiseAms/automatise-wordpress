@@ -1,0 +1,110 @@
+
+$grid-parts: (
+	"full": 1,
+	"half": 1/2,
+	"third": 1/3,
+	"two-third": 2/3,
+	"quarter": 1/4,
+	"three-quarter": 3/4,
+	"fifth": 1/5,
+	"two-fifth": 2/5,
+	"three-fifth": 3/5,
+	"four-fifth": 4/5,
+	"sixth": 1/6,
+	"five-sixth": 5/6
+) !default; //
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.column {
+	@each $grid-name, $grid-value in $grid-breakpoints {
+		$query: 'only screen and (min-width: 0px)';
+		@if $grid-name != 'small' {
+			$query: map-get($media-queries, '#{$grid-name}-up');
+		}
+		@for $grid-column from 0 to $grid-columns + 1 {
+			$percentage: (100% / 24 * $grid-column);
+			&.#{$grid-name}-#{$grid-column} {
+				@media #{$query} {
+					width: $percentage;
+				}
+			}
+		}
+		@each $part, $value in $grid-parts {
+			&.#{$grid-name}-#{$part} {
+				@media #{$query} {
+					width: $value * 100%;
+				}
+			}
+		}
+	}
+}
+
+// 		&.xxlarge-#{$i} {
+// 			@media #{$xxlarge-up} {
+// 				width: $percentage;
+// 			}
+// 		}
+// 		&.xlarge-#{$i} {
+// 			@media #{$xlarge-up} {
+// 				width: $percentage;
+// 			}
+// 		}
+// 		&.large-#{$i} {
+// 			@media #{$large-up} {
+// 				width: $percentage;
+// 			}
+// 		}
+// 		&.mediumlarge-#{$i} {
+// 			@media #{$mediumlarge-up} {
+// 				width: $percentage;
+// 			}
+// 		}
+// 		&.medium-#{$i} {
+// 			@media #{$medium-up} {
+// 				width: $percentage;
+// 			}
+// 		}
+// 		&.small-#{$i} {
+// 			@media screen and (min-width: 0px) {
+// 				width: $percentage;
+// 			}
+// 		}
+// 	}
+// 	@each $grid-name, $grid-value in $grid-parts {
+// 		&.xxlarge-#{$grid-name} {
+// 			@media #{$xxlarge-up} {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 		&.xlarge-#{$grid-name} {
+// 			@media #{$xlarge-up} {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 		&.large-#{$grid-name} {
+// 			@media #{$large-up} {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 		&.mediumlarge-#{$grid-name} {
+// 			@media #{$mediumlarge-up} {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 		&.medium-#{$grid-name} {
+// 			@media #{$medium-up} {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 		&.small-#{$grid-name} {
+// 			@media screen and (min-width: 0px) {
+// 				width: (100% * $grid-value);
+// 			}
+// 		}
+// 	}
+// }

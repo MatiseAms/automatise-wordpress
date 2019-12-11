@@ -22,8 +22,7 @@
     "wpackagist-plugin/wordfence": "*",
     "wpackagist-plugin/mailgun": "*",
     "wpackagist-plugin/w3-total-cache": "*",
-    "wpackagist-plugin/tiny-compress-images": "*",
-    "wpackagist-plugin/classic-editor": "^1.5"
+    "wpackagist-plugin/tiny-compress-images": "*"
   },
   "extra": {
     "wordpress-install-dir": "public/wordpress",

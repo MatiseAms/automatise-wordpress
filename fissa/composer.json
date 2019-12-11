@@ -1,0 +1,38 @@
+{
+  "name": "matise/fissa",
+  "description": "My tiptop Matise Wordpress project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://matise:development@plugins.matise.nl"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/matiseams/matise-wp-core"
+    }
+  ],
+  "require": {
+    "johnpbloch/wordpress": "*",
+    "matise/advanced-custom-fields-pro": "*",
+    "matise/matise-wp-core": "*",
+    "wpackagist-plugin/wordfence": "*",
+    "wpackagist-plugin/mailgun": "*",
+    "wpackagist-plugin/w3-total-cache": "*",
+    "wpackagist-plugin/tiny-compress-images": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wordpress",
+    "installer-paths": {
+      "public/content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "public/content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    }
+  }
+}

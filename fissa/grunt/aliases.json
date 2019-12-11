@@ -1,0 +1,36 @@
+{
+  "default": [
+    "notify",
+    "dev",
+    "watch"
+  ],
+  "standard": [
+    "clean:dist",
+    "browserify",
+    "copy:theme",
+    "copy:images",
+    "copy:fonts",
+    "copy:vendor",
+    "copy:js"
+  ],
+  "dev": [
+    "standard",
+    "sass:dev",
+    "postcss:dev",
+    "copy:config_dev"
+  ],
+  "staging": [
+    "standard",
+    "sass:dist",
+    "postcss:dist",
+    "uglify:dist",
+    "copy:config_staging"
+  ],
+  "dist": [
+    "standard",
+    "sass:dist",
+    "postcss:dist",
+    "uglify:dist",
+    "copy:config_live"
+  ]
+}

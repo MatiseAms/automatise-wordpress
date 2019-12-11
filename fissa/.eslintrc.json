@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "off"
+    ],
+		"no-unused-vars": [
+			"off"
+		]
+  },
+  "globals": {
+    "localStorage": false,
+    "localParse": false
+  }
+}

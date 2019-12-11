@@ -1,7 +1,7 @@
 {
-	"name": "create-matise-wordpress",
-	"version": "0.0.13",
-	"description": "Create Matise Wordpress App.",
+	"name": "automatise-wordpress",
+	"version": "1.0.0",
+	"description": "Create Matise Wordpress.",
 	"bin": "cli.js",
 	"files": [
 		"cli.js",
@@ -10,7 +10,7 @@
 		"template/"
 	],
 	"repository": {
-		"url": "git+https://github.com/matiseams/create-matise-wordpress.git",
+		"url": "git+https://github.com/matiseams/automatise-wordpress.git",
 		"type": "git"
 	},
 	"scripts": {
@@ -26,7 +26,6 @@
 	"authors": [
 		"Cyd Stumpel <cyd@matise.nl>",
 		"Dennis Spierenburg <dennis@matise.nl>",
-		"Sil van Diepen <sil@matise.nl>",
 		"Stephan Hoogland <stephan@matise.nl>"
 	],
 	"license": "MIT"

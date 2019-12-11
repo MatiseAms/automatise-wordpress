@@ -1,8 +1,37 @@
 {
-	"default": ["notify", "dev", "watch"],
-	"standard": ["eslint", "clean:dist", "copy:theme", "copy:vendor"],
-	"dev": ["standard", "copy:config_dev"],
-	"staging": ["standard", "copy:config_staging"],
-	"dist": ["standard", "copy:config_live"],
-	"getdb": ["shell:pulldatabase"]
+  "default": [
+    "notify",
+    "dev",
+    "watch"
+  ],
+  "standard": [
+    "eslint",
+    "clean:dist",
+    "browserify",
+    "copy:theme",
+    "copy:images",
+    "copy:fonts",
+    "copy:vendor",
+    "copy:js"
+  ],
+  "dev": [
+    "standard",
+    "sass:dev",
+    "postcss:dev",
+    "copy:config_dev"
+  ],
+  "staging": [
+    "standard",
+    "sass:dist",
+    "postcss:dist",
+    "uglify:dist",
+    "copy:config_staging"
+  ],
+  "dist": [
+    "standard",
+    "sass:dist",
+    "postcss:dist",
+    "uglify:dist",
+    "copy:config_live"
+  ]
 }
