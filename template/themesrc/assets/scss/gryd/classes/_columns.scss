@@ -18,6 +18,11 @@ $grid-parts: (
 	display: flex;
 	flex-wrap: wrap;
 	width: 100%;
+	&.center {
+		justify-content: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .column {
@@ -43,68 +48,3 @@ $grid-parts: (
 		}
 	}
 }
-
-// 		&.xxlarge-#{$i} {
-// 			@media #{$xxlarge-up} {
-// 				width: $percentage;
-// 			}
-// 		}
-// 		&.xlarge-#{$i} {
-// 			@media #{$xlarge-up} {
-// 				width: $percentage;
-// 			}
-// 		}
-// 		&.large-#{$i} {
-// 			@media #{$large-up} {
-// 				width: $percentage;
-// 			}
-// 		}
-// 		&.mediumlarge-#{$i} {
-// 			@media #{$mediumlarge-up} {
-// 				width: $percentage;
-// 			}
-// 		}
-// 		&.medium-#{$i} {
-// 			@media #{$medium-up} {
-// 				width: $percentage;
-// 			}
-// 		}
-// 		&.small-#{$i} {
-// 			@media screen and (min-width: 0px) {
-// 				width: $percentage;
-// 			}
-// 		}
-// 	}
-// 	@each $grid-name, $grid-value in $grid-parts {
-// 		&.xxlarge-#{$grid-name} {
-// 			@media #{$xxlarge-up} {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 		&.xlarge-#{$grid-name} {
-// 			@media #{$xlarge-up} {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 		&.large-#{$grid-name} {
-// 			@media #{$large-up} {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 		&.mediumlarge-#{$grid-name} {
-// 			@media #{$mediumlarge-up} {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 		&.medium-#{$grid-name} {
-// 			@media #{$medium-up} {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 		&.small-#{$grid-name} {
-// 			@media screen and (min-width: 0px) {
-// 				width: (100% * $grid-value);
-// 			}
-// 		}
-// 	}
-// }

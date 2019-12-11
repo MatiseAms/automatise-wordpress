@@ -1,3 +1,26 @@
+@function str-split($str, $separator) {
+	// empty array/list
+	$split-arr: ();
+	// // first index of separator in str
+	$index: str-index($str, $separator);
+	// @debug $index;
+	// loop through str
+	@while $index != null {
+		// get the substr from the first character to the separator
+		$item: str-slice($str, 1, $index - 1);
+		// push item to array
+		$split-arr: append($split-arr, $item);
+		// remove item and separator from str
+		$str: str-slice($str, $index + 1);
+		// find new index of separator
+		$index: str-index($str, $separator);
+	}
+	// add the remaining str to list (the last item)
+	$split-arr: append($split-arr, $str);
+
+	@return $split-arr;
+}
+
 // str-replace function
 // --------------------------
 /// Split a string by a given string into a list.

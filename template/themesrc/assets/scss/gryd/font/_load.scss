@@ -21,16 +21,18 @@
 		$src: append($src, $value);
 	}
 
-	@font-face {
-		@if (str-index($name, ' ')) {
-			$name: '#{$name}';
-		}
-		src: to-string($src, ',');
-		font-weight: $weight;
-		font-family: $name;
-		font-style: unquote($type);
-		font-display: swap; 
-	};
+	@if($name != 'serif' and $name != 'sans-serif') {
+		@font-face {
+			@if (str-index($name, ' ')) {
+				$name: '#{$name}';
+			}
+			src: to-string($src, ',');
+			font-weight: $weight;
+			font-family: $name;
+			font-style: unquote($type);
+			font-display: swap;
+		};
+	}
 }
 
 @mixin font-list( $title, $name, $weights, $types: ('normal'), $files: ('eot', 'woff', 'svg', 'ttf'), $path: $base-font-path) {
