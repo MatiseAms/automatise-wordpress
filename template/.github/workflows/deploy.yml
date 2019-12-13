@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Composer Action
-      uses: MilesChou/composer-action@v0.0.1
+      uses: MilesChou/composer-action@v1.0.1
       env:
         COMPOSER_AUTH: '{"github-oauth": {"github.com": "8f29ef6d9164c2487843d7f171727d6ef4b33507"}}'
       with:
@@ -60,4 +60,3 @@ jobs:
         SFTP_HOST: sftp.flywheelsites.com
         SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         SFTP_USER: cyds
-

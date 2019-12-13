@@ -4,3 +4,7 @@
 @import 'typography/typography';
 @import 'components/index';
 @import 'gryd/once';
+
+svg {
+	fill: currentColor;
+}

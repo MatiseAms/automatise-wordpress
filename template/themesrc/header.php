@@ -37,7 +37,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php
-	// $header_menu = array(); // delete this and uncomment next line when you add a header_menu
 	$header_menu = get_menu_items_by_registered_slug( 'header_menu' );  // change 'header_menu' if you changed the menu location name
 	if (count($header_menu)) {
 		$nav = array();
@@ -68,7 +67,7 @@
 			$counter++;
 		}
 		?>
-		<header ref="header" class="header">
+		<header class="header">
 			<div class="header__inner">
 				<nav class="nav nav--top" aria-label="Top navigation">
 					<ul class="nav__list">
