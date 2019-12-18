@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "695347db902661b71623514ff1cb3f4e",
+    "content-hash": "e4bf211804fae11320fc64011852c57b",
     "packages": [
         {
             "name": "composer/installers",
@@ -130,20 +130,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "2b710cf99daf1c219948cd6ee4719ccfbd12e109"
+                "reference": "06834018a2c6ab3a778e7c1c1f278ccaf675235e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/2b710cf99daf1c219948cd6ee4719ccfbd12e109",
-                "reference": "2b710cf99daf1c219948cd6ee4719ccfbd12e109",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/06834018a2c6ab3a778e7c1c1f278ccaf675235e",
+                "reference": "06834018a2c6ab3a778e7c1c1f278ccaf675235e",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "5.3.0",
+                "johnpbloch/wordpress-core": "5.3.1",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.6.20"
             },
@@ -165,27 +165,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-11-12T20:45:58+00:00"
+            "time": "2019-12-12T21:46:44+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "5.3.0",
+            "version": "5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "17ddddaf049e82655c6d3831ca787350807b0566"
+                "reference": "9f8c4205f74c7c2a1e353add9c0c281ce8e3362b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/17ddddaf049e82655c6d3831ca787350807b0566",
-                "reference": "17ddddaf049e82655c6d3831ca787350807b0566",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/9f8c4205f74c7c2a1e353add9c0c281ce8e3362b",
+                "reference": "9f8c4205f74c7c2a1e353add9c0c281ce8e3362b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "5.3.0"
+                "wordpress/core-implementation": "5.3.1"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -205,7 +205,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2019-11-12T20:45:53+00:00"
+            "time": "2019-12-12T21:46:39+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -268,45 +268,6 @@
             "type": "wordpress-plugin"
         },
         {
-            "name": "matise/matise-wp-core",
-            "version": "2.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:MatiseAms/matise-wp-core.git",
-                "reference": "33e56b214eabf0e3a1df2582676df96f1d43e761"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/MatiseAms/matise-wp-core/zipball/33e56b214eabf0e3a1df2582676df96f1d43e761",
-                "reference": "33e56b214eabf0e3a1df2582676df96f1d43e761",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.0"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPL-2.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "Stephan",
-                    "email": "stephan@matise.nl"
-                },
-                {
-                    "name": "Dennis",
-                    "email": "dennis@matise.nl"
-                }
-            ],
-            "description": "Often used functions and extensions for matise projects",
-            "homepage": "https://matise.nl",
-            "support": {
-                "source": "https://github.com/MatiseAms/matise-wp-core/tree/v2.0.2",
-                "issues": "https://github.com/MatiseAms/matise-wp-core/issues"
-            },
-            "time": "2019-12-10T13:35:22+00:00"
-        },
-        {
             "name": "wpackagist-plugin/mailgun",
             "version": "1.7.1",
             "source": {
@@ -328,15 +289,15 @@
         },
         {
             "name": "wpackagist-plugin/tiny-compress-images",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/tiny-compress-images/",
-                "reference": "tags/3.2.0"
+                "reference": "tags/3.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.3.2.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/tiny-compress-images.3.2.1.zip",
                 "reference": null,
                 "shasum": null
             },

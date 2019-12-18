@@ -8,10 +8,9 @@
  * @version      1.0
  * @since        1.0
  */
-?>
 
-<?php get_header(); ?>
+get_header();
+the_post();
+the_content();
 
-<?php the_content(); ?>
-<h1>Seb is gek</h1>
-<?php get_footer(); ?>
+get_footer();

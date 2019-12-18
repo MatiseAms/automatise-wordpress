@@ -5,7 +5,6 @@
     "watch"
   ],
   "standard": [
-    "eslint",
     "clean:dist",
     "browserify",
     "copy:theme",

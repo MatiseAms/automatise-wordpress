@@ -17,6 +17,9 @@ To work on this project in this branch run:
 You could also install and use grunt if you think the above command has too much key presses. Then to work on this project in this branch run:
 - grunt
 
+### Issues
+- grunt/aliases.json > delete for now as it doesnt work
+
 ### Wordpress
 
 | Env | Url | Codeship |  

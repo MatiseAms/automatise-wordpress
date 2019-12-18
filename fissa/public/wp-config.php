@@ -1,6 +1,6 @@
 <?php
-
-
+/** Enable W3 Total Cache */
+define('WP_CACHE', false); // Added by W3 Total Cache
 
 /**
 * Wordpress configuration by Matise.
@@ -49,14 +49,14 @@ if (!defined('DB_COLLATE')) {
 * @since 2.6.0
 */
 
-define('AUTH_KEY',         '9J->Y|HV.{%/VM6Z[rtJBz6#Hdn,6W~]l--:t-`M1+Het.V)?7^3^E7iSQt,[.hY');
-define('SECURE_AUTH_KEY',  '^O3lIF,C[U5Y$ZI=@X4f#2hzdwk8sV[mkv+KF=kL)VYx=$6yJs]o]I.~!?DU,N<F');
-define('LOGGED_IN_KEY',    '[v~+;^!^*Rdl4:p6@N^Cn,N[mLP@-3./APUU5smDPgQVHzoh8D 7a|cxo`;uoHH:');
-define('NONCE_KEY',        'ATB}H+W15 Vh)AV+&[MTiV#f&d]FGp@)$hj}m02Qo`k8/XiGa[`39:4_Y117%8z0');
-define('AUTH_SALT',        '*qVKS+s<RH14LdUc0C9q^xXv |$8s8w#9[&KkAxD+[Q1<5X.0YJ( ,Wh`pRs@K!-');
-define('SECURE_AUTH_SALT', '@:!y|Ds],-q~LEe1GK8x25 x+{Aa^9%ey@SPi{=#y u;J2wz[_,j^)vMT#J}|ldN');
-define('LOGGED_IN_SALT',   'W]G0ilWxCdhw=~1O{x;s9!KW+[^Oc6|ymDbz^}Qy}9bCJ!-h#&rm]N_m(%X271>N');
-define('NONCE_SALT',       'iY]H-JDqS-Td9HPKF0.nPA=L->VMO)G@72n,S-4S`l-X; INy+;BxnKfbb%1F^b)');
+define('AUTH_KEY',         's=@%B<&tS&c2<zyF;r/-m>--<lJ@Kne01T0++C.h`rj~n|zo/*P|%?TZi<.iE]K@');
+define('SECURE_AUTH_KEY',  '/YBY)Jkgi<?-#}c:+Dml_+GtJ$+Jt$d$,HPykd8=W7vxT]u,|H1^gIkR|3D@P&R|');
+define('LOGGED_IN_KEY',    '6g&P:|TwN f+h_}SNR7IY0jx&Z)[`+yI?&mM%P|(](|?pP6+Q{]B7J]THIF/C4d.');
+define('NONCE_KEY',        'r1d-W)7eMcaD|ac I9-Mkeh| ~n<)[@u*@OIvwEYd3W[KO]+<0OchOd>h QlI9es');
+define('AUTH_SALT',        'W&CHzj9uS^-@F52?]`$Sz~b%m=Ou^94Do^kS9w|R.!=hk0dJE_Y-Tv4cGH EUlr&');
+define('SECURE_AUTH_SALT', 'nkUe^}#H)IQbD5D^B,!DW||GE9|h|C2mghpYT*C-N4TErA|TRuN|+~;wxK~UZ!QG');
+define('LOGGED_IN_SALT',   '#.S&[A7d4,IU[VQrz5j#qY jXHNOU7.H]:Z;wG4X*u~T%HXcEjwB{0h,rlT&GGY8');
+define('NONCE_SALT',       'z^^^$i.U*cecpZ^^:V#r|~#8|PD13QWFPA-+ =6u89t=|iA(_P-q$IV ki/K_!lQ');
 
 /**#@-*/
 
@@ -103,7 +103,7 @@ if (!defined('WP_CONTENT_URL')) {
 * in their development environments.
 */
 if (!defined('WP_DEBUG')) {
-	define('WP_DEBUG', true);
+	define('WP_DEBUG', false);
 }
 
 define( 'AUTOMATIC_UPDATER_DISABLED', true );

@@ -12,5 +12,5 @@
 get_header();
 the_post();
 the_content();
-
+echo '<h1>Fissa!</h1>';
 get_footer();

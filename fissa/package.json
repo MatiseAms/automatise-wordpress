@@ -1,7 +1,7 @@
 {
 	"name": "fissa",
 	"version": "1.0.0",
-	"description": "My tiptop Matise Wordpress project",
+	"description": "My posh Matise Wordpress project",
 	"author": "Cyd Stumpel",
 	"engines": {
 		"node": "^10.0.0"
@@ -12,9 +12,11 @@
 		"dev": "grunt",
 		"staging": "grunt staging",
 		"dist": "grunt dist",
-		"postinstall": "sh scripts/postinstall.sh"
+		"valet": "sh scripts/valet.sh"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"matise-gryd": "^1.0.0"
+	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.7.4",
 		"autoprefixer": "^9.6.1",

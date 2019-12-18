@@ -1,5 +1,4 @@
 <?php
-
 function svg($svg_name){
 	switch($svg_name){
 		case 'arrow';

@@ -7,6 +7,6 @@ module.exports = {
 		src: [
 			'<%= config.themesrc.root %>assets/js/app.js'
 		],
-		dest: '<%= config.themedist.browserify %>assets/js/app.js'
+		dest: '<%= config.themedist.browserify %>app.js'
 	}
 };

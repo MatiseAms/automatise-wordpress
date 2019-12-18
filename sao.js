@@ -91,16 +91,14 @@ module.exports = {
 		console.log();
 		console.log(chalk.bold(`  To get started:\n`));
 		cd();
+		console.log(`    npm run valet`);
+		console.log(`    - Setup valet`);
 		console.log(`    npm run dev`);
 		console.log(`    - Install wordpress`);
 		console.log(`    - Activate your theme`);
+		console.log(`    - If you have wp cli installed you can use:`);
+		console.log(`    wp theme activate ${folderName}`);
 		console.log(`    - Start developing!`);
-		console.log(chalk.bold(`  To build & start for production:\n`));
-		cd();
-		console.log(`    npm run staging`);
-		console.log(`    cd dist`);
-		console.log(`    npm i --production`);
-		console.log(`    ./node_modules/.bin/nuxt start`);
 		console.log();
 	}
 };

@@ -4,7 +4,8 @@ module.exports = {
 	dev: {
 		options: {
 			implementation: sass,
-			sourceMap: true
+			sourceMap: true,
+			includePaths: ['node_modules/matise-gryd']
 		},
 		files: {
 			'<%= config.themedist.root %>assets/css/app.css': '<%= config.themesrc.root %>assets/scss/app.scss',
@@ -15,7 +16,8 @@ module.exports = {
 		options: {
 			implementation: sass,
 			sourceMap: false,
-			omitSourceMapUrl: true
+			omitSourceMapUrl: true,
+			includePaths: ['node_modules/matise-gryd']
 		},
 		files: {
 			'<%= config.themedist.root %>assets/css/app.css': '<%= config.themesrc.root %>assets/scss/app.scss',

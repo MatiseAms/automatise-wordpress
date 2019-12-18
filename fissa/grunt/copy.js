@@ -45,11 +45,11 @@ module.exports = {
 			cwd: '<%= config.themesrc.root %>',
 			src: [
 				'**/*',
-				'!scss/**',
+				'!assets/scss/**',
 				'!vendor/**',
-				'!fonts/**',
-				'!img/**',
-				'!js/**'
+				'!assets/fonts/**',
+				'!assets/img/**',
+				'!assets/js/**'
 			],
 			dest: '<%= config.themedist.root %>'
 		}]
@@ -69,7 +69,7 @@ module.exports = {
 			expand: true,
 			cwd: '<%= config.themedist.browserify %>',
 			src: [
-				'assets/js/app.js'
+				'app.js'
 			],
 			dest: '<%= config.themedist.root %>assets/js/'
 		}]

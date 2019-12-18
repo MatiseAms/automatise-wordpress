@@ -1,6 +1,6 @@
 <?php
 /**
- * Page page
+ * Archive page
  *
  * @author       Matise (matise.nl)
  * @package      Wordpress
@@ -8,11 +8,3 @@
  * @version      1.0
  * @since        1.0
  */
-
-get_header();
-the_post();
-the_content();
-
-get_footer();
-
-?>
