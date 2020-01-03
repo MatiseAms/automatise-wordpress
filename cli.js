@@ -11,7 +11,6 @@ console.log(`> Generating Matise wordpress project in ${outDir}`);
 const options = { generator, outDir, npmClient: 'npm' }
 
 if(process.argv[3]){
-	console.log(process.argv[3])
 	options.answers = process.argv[3]
 }
 
