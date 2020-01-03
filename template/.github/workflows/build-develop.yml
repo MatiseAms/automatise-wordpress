@@ -1,0 +1,30 @@
+name: Build develop
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: MatiseAms/checkout@master
+
+    # Build
+      - name: Composer Install
+        uses: MatiseAms/composer-action/7.2/install@master
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+      - name: Setup Node.js 12.x
+        uses: MatiseAms/setup-node@master
+        with:
+          node-version: 12.x
+      - name: npm install
+        run: npm ci
+        env:
+          CI: true
+      - name: Add commit to file
+        uses: MatiseAms/node-module-action@master
+        with:
+          args: 'scripts/add-commit.mjs'

@@ -13,7 +13,7 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try": "rm -rf fissa && node cli.js fissa",
+		"try": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\"}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {
