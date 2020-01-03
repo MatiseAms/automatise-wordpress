@@ -5,8 +5,7 @@
 	"bin": "cli.js",
 	"files": [
 		"cli.js",
-		"sao.js",
-		"lib/",
+		"saofile.js",
 		"template/"
 	],
 	"repository": {
@@ -14,12 +13,12 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try": "rm -rf fissa && node cli.js fissa"
+		"try": "rm -rf fissa && node cli.js fissa",
+		"trypublish": "npm publish || true"
 	},
 	"dependencies": {
 		"axios": "^0.19.0",
-		"minimist": "^1.2.0",
-		"sao": "0.22.17",
+		"sao": "1.6.1",
 		"superb": "^4.0.0"
 	},
 	"devDependencies": {},

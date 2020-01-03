@@ -1,19 +1,16 @@
 #!/usr/bin/env node
-const path = require('path');
-const sao = require('./lib/sao');
-const minimist = require('minimist');
 
-const argv = minimist(process.argv.slice(2));
-// In a custom directory or current directory
-const targetPath = path.resolve(argv._[0] || '.');
+const path = require('path')
+const sao = require('sao')
 
-console.log(`> Generating Matise wordpress project in ${targetPath}`);
+const generator = path.resolve(__dirname, './')
+const outDir = path.resolve(process.argv[2] || '.')
 
-// See https://sao.js.org/#/advanced/standalone-cli
-sao({
-	template: __dirname,
-	targetPath
-}).catch(err => {
-	console.error(err.name === 'SAOError' ? err.message : err.stack);
-	process.exit(1);
-});
+console.log(`> Generating Matise wordpress project in ${outDir}`);
+
+sao({ generator, outDir, npmClient: 'npm' })
+	.run()
+	.catch(err => {
+		console.trace(err)
+		process.exit(1)
+	})
