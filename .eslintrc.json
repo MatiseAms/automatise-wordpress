@@ -24,17 +24,17 @@
     "no-console": [
       "off"
     ],
-		"no-unused-vars": [
-			"off"
-		]
+    "no-unused-vars": [
+      "off"
+    ]
   },
   "globals": {
     "angular": false,
     "localStorage": false,
     "localParse": false,
-		"Swiper": false,
-		"google": false,
-		"locations": false,
-		"people": false
+    "Swiper": false,
+    "google": false,
+    "locations": false,
+    "people": false
   }
 }

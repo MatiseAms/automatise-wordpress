@@ -21,8 +21,6 @@ define('SCRIPT_DEBUG', true);
 //  * wp-content (If Apache does not have write permission, you may need to create
 //  * the file first and set the appropriate permissions (i.e. use 660) )
 //  */
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
 
 $protocol = 'https://'; // with valet we could/should set this to https locally
 
