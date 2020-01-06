@@ -1,6 +1,6 @@
 {
 	"name": "automatise-wordpress",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "Create Matise Wordpress.",
 	"bin": "cli.js",
 	"files": [
@@ -13,7 +13,7 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try": "rm -rf fissa && node cli.js fissa",
+		"try": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\"}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {

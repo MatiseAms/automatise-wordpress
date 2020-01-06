@@ -1,0 +1,59 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+        FTP_SERVER: sftp.flywheelsites.com
+        FTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+        FTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+    steps:
+      - uses: MatiseAms/checkout@master
+
+    # Build
+      - name: Composer Install
+        uses: MatiseAms/composer-action/7.2/install@master
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+      - name: Setup Node.js 13.x
+        uses: MatiseAms/setup-node@master
+        with:
+          node-version: 13.x
+      - name: npm install
+        run: npm ci
+        env:
+          CI: true
+      - name: Add commit to file
+        uses: MatiseAms/node-module-action@master
+        with:
+          args: 'scripts/add-commit.mjs'
+
+    # Deploy
+    #   - name: npm build staging
+    #     run: npm run staging
+    #   - name: sftp theme to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/content/themes/[theme_name]
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/themes/[theme_name]
+    #       ARGS: --verbose
+    #   - name: sftp matise-wp-core to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/content/plugins/matise-wp-core
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/plugins/matise-wp-core
+    #       ARGS: --verbose
+    #   - name: sftp vendor to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/vendor
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]/vendor
+    #       ARGS: --verbose

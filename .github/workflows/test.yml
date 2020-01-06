@@ -1,9 +1,6 @@
-name: Node Publish
+name: Test
 
-on:
-  push:
-    branches:
-    - master
+on: 'push'
 
 jobs:
   build:
@@ -16,10 +13,10 @@ jobs:
       uses: MatiseAms/setup-node@v1
       with:
         node-version: 13.x
-    - name: npm publish
+    - name: npm run try
       run: |
-        echo "//registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
-        npm run trypublish
+        npm ci
+        npm run try
       env:
         CI: true
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
