@@ -5,6 +5,7 @@
 //===================
 require_once('field-groups/acf.php');
 require_once('filters/acf.php');
+require_once('srcset-generator.php');
 
 //===================
 // Theme specific functions functions
