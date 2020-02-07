@@ -24,9 +24,7 @@ $image_sizes = array(
 		1080
 	)
 );
-function FunctionName($value='') {
-	// code...
-}
+
 foreach ($image_sizes as $image_name => $image_size) {
 	add_image_size($image_name, $image_size[0], $image_size[1], true);
 }
@@ -43,6 +41,8 @@ function create_srcset($sizes, $source_id) {
 	</picture>';
 }
 
+
+// Usage: echo srcset('small_desktop', get_post_thumbnail_id($post));
 function srcset($start_size, $source_id) {
 	global $image_sizes;
 	$sources = array();
