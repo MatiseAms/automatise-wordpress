@@ -16,10 +16,10 @@ jobs:
         uses: MatiseAms/composer-action/7.2/install@master
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 13.x
         uses: MatiseAms/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 13.x
       - name: npm install
         run: npm ci
         env:

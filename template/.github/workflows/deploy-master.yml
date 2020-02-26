@@ -50,6 +50,7 @@ jobs:
     #       LOCAL_DIR: public/content/plugins/matise-wp-core
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/plugins/matise-wp-core
     #       ARGS: --verbose
+
     #   - name: sftp vendor to flywheel
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:

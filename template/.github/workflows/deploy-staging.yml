@@ -20,10 +20,10 @@ jobs:
         uses: MatiseAms/composer-action/7.2/install@master
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
-      - name: Setup Node.js 12.x
+      - name: Setup Node.js 13.x
         uses: MatiseAms/setup-node@master
         with:
-          node-version: 12.x
+          node-version: 13.x
       - name: npm install
         run: npm ci
         env:
@@ -34,26 +34,27 @@ jobs:
           args: 'scripts/add-commit.mjs'
 
     # Deploy
-      - name: npm build staging
-        run: npm run staging
-      - name: sftp theme to flywheel
-        uses: MatiseAms/FTP-Deploy-Action@master
-        env:
-          METHOD: sftp
-          LOCAL_DIR: public/content/themes/ebbinge
-          REMOTE_DIR: org-matise/ebbinge_staging/wp-content/themes/ebbinge
-          ARGS: --verbose
-      - name: sftp matise-wp-core to flywheel
-        uses: MatiseAms/FTP-Deploy-Action@master
-        env:
-          METHOD: sftp
-          LOCAL_DIR: public/content/plugins/matise-wp-core
-          REMOTE_DIR: org-matise/ebbinge_staging/wp-content/plugins/matise-wp-core
-          ARGS: --verbose
-      - name: sftp vendor to flywheel
-        uses: MatiseAms/FTP-Deploy-Action@master
-        env:
-          METHOD: sftp
-          LOCAL_DIR: public/vendor
-          REMOTE_DIR: org-matise/ebbinge_staging/vendor
-          ARGS: --verbose
+    #   - name: npm build staging
+    #     run: npm run staging
+    #   - name: sftp theme to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/content/themes/[theme_name]
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]_staging/wp-content/themes/[theme_name]
+    #       ARGS: --verbose
+    #   - name: sftp matise-wp-core to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/content/plugins/matise-wp-core
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]_staging/wp-content/plugins/matise-wp-core
+    #       ARGS: --verbose
+
+    #   - name: sftp vendor to flywheel
+    #     uses: MatiseAms/FTP-Deploy-Action@master
+    #     env:
+    #       METHOD: sftp
+    #       LOCAL_DIR: public/vendor
+    #       REMOTE_DIR: org-matise/[flywheel_project_name]_staging/vendor
+    #       ARGS: --verbose
