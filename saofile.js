@@ -107,6 +107,7 @@ module.exports = {
 		await this.npmInstall({
 			packages: [
 				'@babel/preset-env',
+				'@babel/core',
 				'autoprefixer',
 				'babelify',
 				'eslint-plugin-prettier',
