@@ -1,5 +1,6 @@
 // Theme
-@import 'color/index';
+@import 'color/index.scss';
+@import 'variables/variables.scss';
 @import '~matise-gryd/gryd-index.scss';
 @import 'typography/typography';
 @import 'components/index';

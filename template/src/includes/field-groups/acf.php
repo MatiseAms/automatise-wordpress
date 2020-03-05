@@ -3,7 +3,6 @@
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 
 function my_acf_json_save_point( $path ) {
-
 	// update path
 	if(defined('MATISE_ENVIRONMENT') && MATISE_ENVIRONMENT === 'local' && defined('ACFPATH')){
 		$path = ACFPATH;

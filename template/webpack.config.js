@@ -8,9 +8,9 @@ const config = require('./config/latest.js');
 
 const { PORT } = process.env;
 const entry = glob.sync('**/*.js', {
-	cwd: './src/includes/components/sections'
+	cwd: './src/includes/components/acf-blocks'
 }).reduce(function (obj, el) {
-	obj[path.parse(el).dir] = './src/includes/components/sections/' + el;
+	obj[path.parse(el).dir] = './src/includes/components/acf-blocks/' + el;
 	return obj;
 }, {});
 entry.main = './src/assets/index.js';
@@ -87,7 +87,7 @@ module.exports = {
 				from: '**/*.php',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
 				context: './src',
-				ignore: ['includes/components/sections/*.js', 'includes/components/sections/*.css']
+				ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css']
 			},
 			{
 				from: '**/*',
