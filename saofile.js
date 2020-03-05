@@ -108,7 +108,6 @@ module.exports = {
 				"sass-resources-loader",
 				"url-loader",
 				"copy-webpack-plugin",
-				"babel-preset-es2015",
 				"browser-sync",
 				"browser-sync-webpack-plugin",
 				"eslint",

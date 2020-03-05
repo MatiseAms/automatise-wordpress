@@ -105,12 +105,7 @@ module.exports = {
 				proxy: config.url,
 				port: PORT,
 				https: true,
-				open: false,
-				files: [
-					'**/*.php',
-					'**/*.scss',
-					'**/*.js'
-				],
+				open: false
 			}
 		)
 	]
