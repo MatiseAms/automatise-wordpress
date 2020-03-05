@@ -104,7 +104,7 @@ module.exports = {
 			{
 				proxy: config.url,
 				port: PORT,
-				https: true,
+				https: false,
 				open: false
 			}
 		)

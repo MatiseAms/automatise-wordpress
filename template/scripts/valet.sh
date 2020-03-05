@@ -6,7 +6,6 @@ cd dist
 valet link <%= packageName %>
 cd ..
 
-valet secure <%= packageName %>
 valet db create <%= packageName %>
 
 # start developing
