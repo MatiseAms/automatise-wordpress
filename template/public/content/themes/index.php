@@ -1,2 +1,0 @@
-<?php
-// Matise is golden

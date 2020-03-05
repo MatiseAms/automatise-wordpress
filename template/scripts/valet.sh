@@ -2,7 +2,7 @@
 composer install
 
 # link valet to the public folder
-cd public
+cd dist
 valet link <%= packageName %>
 cd ..
 

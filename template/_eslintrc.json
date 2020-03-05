@@ -5,7 +5,8 @@
     "es6": true
   },
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   "extends": "eslint:recommended",
   "rules": {
@@ -24,9 +25,9 @@
     "no-console": [
       "off"
     ],
-		"no-unused-vars": [
-			"off"
-		]
+    "no-unused-vars": [
+      "off"
+    ]
   },
   "globals": {
     "localStorage": false,
