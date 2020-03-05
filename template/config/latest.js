@@ -1,5 +1,1 @@
-module.exports = {
-	url: 'fissa',
-	mode: 'production',
-	themeName: 'fissa'
-};
+module.exports = {};
