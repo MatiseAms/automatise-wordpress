@@ -4,7 +4,7 @@
  *
  * @author       Matise (matise.nl)
  * @package      Wordpress
- * @subpackage   macs
+ * @subpackage   <%= name %>
  * @version      1.0
  * @since        1.0
  */

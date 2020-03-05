@@ -19,7 +19,7 @@ module.exports = {
 	mode: config.mode,
 	entry,
 	output: {
-		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets/bundle`),
+		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets`),
 		filename: '[name].js'
 	},
 	module: {
