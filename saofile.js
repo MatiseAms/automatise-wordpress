@@ -24,7 +24,7 @@ module.exports = {
 				message: 'Package name (lowercase without whitespace) used for package name, valet and git',
 				default: this.outFolder,
 				filter: val => val.toLowerCase(),
-				validate: function(value) {
+				validate: function (value) {
 					const invalid = value.match(
 						/[A-Z]|\s|\W/
 					);
@@ -39,7 +39,7 @@ module.exports = {
 				name: 'name',
 				message: 'Project name (Nice name without spaces), used for namespacing classes and files',
 				default: this.outFolder,
-				validate: function(value) {
+				validate: function (value) {
 					var invalid = value.toLowerCase().match(
 						/[A-Z]|\s|\W/
 					);
@@ -73,7 +73,7 @@ module.exports = {
 		{
 			type: 'add',
 			files: '**',
-			transformExclude:[
+			transformExclude: [
 				'grunt/browserify.js',
 				'grunt/clean.js',
 				'grunt/copy.js',
@@ -92,7 +92,8 @@ module.exports = {
 				'gitignore': '.gitignore',
 				'_package.json': 'package.json',
 				'_composer.json': 'composer.json',
-				'_eslintrc.json': '.eslintrc.json'
+				'_eslintrc.json': '.eslintrc.json',
+				'_stylelintrc.config.js': '.stylelintrc.config.js'
 			}
 		}
 	],
@@ -101,47 +102,49 @@ module.exports = {
 
 		await this.npmInstall({
 			packages: [
-				'matise-gryd'
-			]
-		})
-		await this.npmInstall({
-			packages: [
-				'@babel/preset-env',
-				'@babel/core',
-				'autoprefixer',
-				'babelify',
-				'eslint-plugin-prettier',
-				'css-byebye',
-				'cssnano',
-				'grunt',
-				'grunt-browserify',
-				'grunt-cli',
-				'grunt-contrib-clean',
-				'grunt-contrib-copy',
-				'grunt-contrib-imagemin',
-				'grunt-contrib-uglify',
-				'grunt-contrib-watch',
-				'grunt-csscomb',
-				'grunt-csso',
-				'grunt-eslint',
-				'grunt-jsbeautifier',
-				'grunt-newer',
-				'grunt-notify',
-				'grunt-postcss',
-				'grunt-sass',
-				'grunt-shell',
-				'jit-grunt',
-				'load-grunt-config',
-				'node-sass',
-				'postcss-alias',
-				'postcss-assets',
-				'postcss-center',
-				'postcss-size',
-				'postcss-sprites',
-				'postcss-svg',
-				'postcss-vmin',
-				'stylelint',
-				'time-grunt'
+				"enhanced-resolve",
+				"glob",
+				"postcss-preset-env",
+				"sass-resources-loader",
+				"url-loader",
+				"copy-webpack-plugin",
+				"browser-sync",
+				"browser-sync-webpack-plugin",
+				"eslint",
+				"eslint-loader",
+				"matise-gryd",
+				"@babel/core",
+				"@babel/preset-env",
+				"autoprefixer",
+				"babel-core",
+				"babel-loader",
+				"babel-preset-env",
+				"babelify",
+				"clean-webpack-plugin",
+				"css-byebye",
+				"css-loader",
+				"cssnano",
+				"eslint-plugin-prettier",
+				"extract-text-webpack-plugin",
+				"file-loader",
+				"mini-css-extract-plugin",
+				"node-sass",
+				"postcss-alias",
+				"postcss-assets",
+				"postcss-center",
+				"postcss-loader",
+				"postcss-sass-loader",
+				"postcss-size",
+				"postcss-sprites",
+				"postcss-svg",
+				"postcss-vmin",
+				"sass-loader",
+				"style-loader",
+				"style-resources-loader",
+				"stylelint",
+				"stylelint-webpack-plugin",
+				"webpack",
+				"webpack-cli"
 			],
 			saveDev: true
 		})

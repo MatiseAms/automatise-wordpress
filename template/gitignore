@@ -1,18 +1,6 @@
 node_modules
 .DS_Store
 
-public/wordpress
-public/local-config.php
-public/.htaccess
-
-public/content/themes/<%= packageName %>
-public/content/themes/storefront
-public/content/uploads
-public/content/cache
-public/content/plugins
-public/content/languages
-
-browserify
-
-public/vendor
 vendor
+dist/vendor
+dist

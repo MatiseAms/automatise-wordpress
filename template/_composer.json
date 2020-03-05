@@ -24,12 +24,12 @@
     "wpackagist-plugin/tiny-compress-images": "*"
   },
   "extra": {
-    "wordpress-install-dir": "public/wordpress",
+    "wordpress-install-dir": "dist/wordpress",
     "installer-paths": {
-      "public/content/plugins/{$name}/": [
+      "dist/content/plugins/{$name}/": [
         "type:wordpress-plugin"
       ],
-      "public/content/themes/{$name}/": [
+      "dist/content/themes/{$name}/": [
         "type:wordpress-theme"
       ]
     }

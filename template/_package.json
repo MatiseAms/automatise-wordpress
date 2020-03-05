@@ -9,13 +9,13 @@
 	"license": "ISC",
 	"private": true,
 	"scripts": {
-		"dev": "grunt",
-		"staging": "grunt staging",
-		"dist": "grunt dist",
+		"dev": "sh scripts/dev.sh",
+		"staging": "sh scripts/staging.sh",
+		"production": "sh scripts/production.sh",
+		"webpack:watch": "webpack --watch",
+		"webpcack": "webpack",
 		"valet": "sh scripts/valet.sh"
 	},
-	"dependencies": {
-	},
-	"devDependencies": {
-	}
+	"dependencies": {},
+	"devDependencies": {}
 }
