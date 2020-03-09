@@ -14,7 +14,8 @@
 		"production": "sh scripts/production.sh",
 		"webpack:watch": "webpack --watch",
 		"webpack": "webpack",
-		"valet": "sh scripts/valet.sh"
+		"valet": "sh scripts/valet.sh",
+		"setup": "sh scripts/setup.sh"
 	},
 	"dependencies": {},
 	"devDependencies": {}

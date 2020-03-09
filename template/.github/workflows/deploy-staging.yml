@@ -16,10 +16,6 @@ jobs:
       - uses: MatiseAms/checkout@master
 
     # Build
-      - name: Composer Install
-        uses: MatiseAms/composer-action/7.2/install@master
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
       - name: Setup Node.js 13.x
         uses: MatiseAms/setup-node@master
         with:
@@ -32,6 +28,12 @@ jobs:
         uses: MatiseAms/node-module-action@master
         with:
           args: 'scripts/add-commit.mjs'
+      - name: npm setup base files
+        run: npm run setup
+      - name: Composer Install
+        uses: MatiseAms/composer-action/7.2/install@master
+        env:
+          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
 
     # Deploy
     #   - name: npm build staging

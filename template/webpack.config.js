@@ -32,7 +32,7 @@ module.exports = {
 						loader: 'babel-loader',
 						options: {
 							presets: ['@babel/preset-env'],
-							comments: false,
+							comments: false
 						}
 					},
 					'eslint-loader'
@@ -104,7 +104,7 @@ module.exports = {
 			{
 				proxy: config.url,
 				port: PORT,
-				https: false,
+				https: true,
 				open: false
 			}
 		)

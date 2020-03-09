@@ -1,5 +1,5 @@
 module.exports = {
-	url: 'http://' + '<%= packageName %>' + '.test',
+	url: 'https://' + '<%= packageName %>' + '.test',
 	mode: 'development',
 	themeName: '<%= packageName %>'
 };
