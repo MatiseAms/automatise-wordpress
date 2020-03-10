@@ -95,6 +95,11 @@ module.exports = {
 				context: './src/assets/img'
 			},
 			{
+				from: '**/*.json',
+				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
+				context: './src/includes/field-groups'
+			},
+			{
 				from: 'style.css',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
 				context: './src'
