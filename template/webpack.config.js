@@ -95,6 +95,12 @@ module.exports = {
 				context: './src/assets/img'
 			},
 			{
+				from: '**/*.svg',
+				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/components/svgs`),
+				context: './src/includes/components/svgs',
+				ignore: ['generate.php']
+			},
+			{
 				from: '**/*.json',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
 				context: './src/includes/field-groups'
