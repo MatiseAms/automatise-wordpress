@@ -8,3 +8,4 @@ config/latest
 .vscode
 config/latest.js
 *.sql
+*.sql.gz
