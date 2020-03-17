@@ -1,10 +1,7 @@
 <?php
 
-$mailgun_key = 'key-undefined';
+define('MAILGUN_API_KEY', '<%= mailgun %>');
 
-define('MAILGUN_API_KEY', $mailgun_key);
-
-// disable plugins on local and staging.
 // some plugins we don't want locally 
 if (defined('MATISE_ENVIRONMENT')){
 	switch (MATISE_ENVIRONMENT) {

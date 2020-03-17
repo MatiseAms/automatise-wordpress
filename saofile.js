@@ -66,10 +66,21 @@ module.exports = {
 				filter: val => val.toLowerCase(),
 				default: this.gitUser.name,
 				store: true
+			},
+			{
+				name: 'type',
+				message: 'Do you want to an API website or WordPress website',
+				type: 'list',
+				choices: ['worpress', 'api'],
+				default: 'wordpress'
 			}
 		]
 	},
 	actions: [
+		{
+			type: 'add',
+			files: '**'
+		},
 		{
 			type: 'move',
 			patterns: {

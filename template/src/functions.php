@@ -12,6 +12,9 @@
 define('COMMIT', '<commit>');
 define('BRANCH', '<branch_ref>');
 
+define('WEBSITE_TYPE', '<%= type %>');
+
+
 if (BRANCH === 'refs/heads/master'){
 	define('MATISE_ENVIRONMENT', 'production');
 } else if (BRANCH === 'refs/heads/staging'){

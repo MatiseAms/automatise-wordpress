@@ -16,7 +16,16 @@ require_once('settings/index.php');
 require_once('filters/index.php');
 
 //===================
+// WP Core
+//===================
+if (WEBSITE_TYPE === 'api') {
+	require_once('wp-core/init.php');
+}
+
+//===================
 // Components and partials
 //===================
-require_once('components/partials/generate.php');
-require_once('components/svgs/generate.php');
+if (WEBSITE_TYPE === 'wordpress') {
+	require_once('components/partials/generate.php');
+	require_once('components/svgs/generate.php');
+}
