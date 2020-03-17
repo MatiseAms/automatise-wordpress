@@ -17,6 +17,8 @@
 	},
 	"scripts": {
 		"try": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\", \"type\":\"api\"}'",
+		"try:api": "npm run try",
+		"try:wordpress": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\", \"type\":\"wordpress\"}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {
