@@ -62,6 +62,9 @@ class ACF {
 	 * If nothing set return object instaed of boolean
 	 */
 	public function change_base_acf_image_values($value, $post_id, $field) {
+		if ($field['type'] === 'image' && is_numeric($value)) {
+			return Basics::get_image_object($value);
+		}
 		if ($field['type'] === 'image' && !$value) {
 			return [];
 		}
