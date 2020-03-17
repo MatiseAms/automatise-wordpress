@@ -71,22 +71,6 @@ module.exports = {
 	},
 	actions: [
 		{
-			type: 'add',
-			files: '**',
-			transformExclude: [
-				'grunt/browserify.js',
-				'grunt/clean.js',
-				'grunt/copy.js',
-				'grunt/csso.js',
-				'grunt/eslint.js',
-				'grunt/notify.js',
-				'grunt/postcss.js',
-				'grunt/sass.js',
-				'grunt/uglify.js',
-				'grunt/watch.js'
-			]
-		},
-		{
 			type: 'move',
 			patterns: {
 				'gitignore': '.gitignore',

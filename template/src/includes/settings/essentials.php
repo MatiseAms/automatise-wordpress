@@ -80,7 +80,7 @@ if (defined('MAILGUN_API_KEY') && MAILGUN_API_KEY !== 'key-undefined') {
 //===================
 // Show commit reference and environment in admin bar
 //===================
-if (!strpos(COMMIT, 'commit')){
+if (!strpos(COMMIT, 'commit')) {
 	function my_custom_admin_head() {
 		$matise_env = '';
 		if (defined('MATISE_ENVIRONMENT')){

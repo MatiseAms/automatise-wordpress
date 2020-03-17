@@ -22,6 +22,9 @@ module.exports = {
 		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets`),
 		filename: '[name].js'
 	},
+	watchOptions: {
+		ignored: ['wpconfig/**', 'node_modules/**', 'vendor/**', 'config/**', 'scripts/**']
+	},
 	module: {
 		rules: [
 			{
@@ -67,7 +70,7 @@ module.exports = {
 			},
 			{
 				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-				loader: 'url-loader?limit=100000'
+				loader: 'url-loader?limit=100'
 			}
 		]
 	},
@@ -109,7 +112,7 @@ module.exports = {
 				from: 'style.css',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
 				context: './src'
-			},
+			}
 		]),
 		new BrowserSyncPlugin(
 			{
