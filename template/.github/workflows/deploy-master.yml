@@ -35,20 +35,20 @@ jobs:
         env:
           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
     # Deploy
-    #   - name: npm build staging
-    #     run: npm run staging
+    #   - name: npm build production
+    #     run: npm run production
     #   - name: sftp theme to flywheel
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/content/themes/[theme_name]
+    #       LOCAL_DIR: dist/content/themes/[theme_name]
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/themes/[theme_name]
     #       ARGS: --verbose
     #   - name: sftp matise-wp-core to flywheel
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/content/plugins/matise-wp-core
+    #       LOCAL_DIR: dist/content/plugins/matise-wp-core
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/plugins/matise-wp-core
     #       ARGS: --verbose
 
@@ -56,6 +56,6 @@ jobs:
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/vendor
+    #       LOCAL_DIR: dist/vendor
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/vendor
     #       ARGS: --verbose
