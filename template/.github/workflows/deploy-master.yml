@@ -41,14 +41,14 @@ jobs:
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/content/themes/${config.themeName}
+    #       LOCAL_DIR: dist/content/themes/${config.themeName}
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/themes/${config.themeName}
     #       ARGS: --verbose
     #   - name: sftp matise-wp-core to flywheel
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/content/plugins/matise-wp-core
+    #       LOCAL_DIR: dist/content/plugins/matise-wp-core
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/plugins/matise-wp-core
     #       ARGS: --verbose
 
@@ -56,6 +56,6 @@ jobs:
     #     uses: MatiseAms/FTP-Deploy-Action@master
     #     env:
     #       METHOD: sftp
-    #       LOCAL_DIR: public/vendor
+    #       LOCAL_DIR: dist/vendor
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/vendor
     #       ARGS: --verbose

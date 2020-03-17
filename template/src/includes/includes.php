@@ -13,6 +13,7 @@ require_once('field-groups/acf.php');
 // Theme specific functions functions
 //===================
 require_once('settings/index.php');
+require_once('filters/index.php');
 
 //===================
 // Components and partials
