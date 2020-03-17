@@ -6,3 +6,5 @@ dist/vendor
 dist
 config/latest
 .vscode
+config/latest.js
+*.sql
