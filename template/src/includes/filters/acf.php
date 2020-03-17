@@ -66,7 +66,7 @@ class ACF {
 			return Basics::get_image_object($value);
 		}
 		if ($field['type'] === 'image' && !$value) {
-			return [];
+			return new \StdClass();
 		}
 		return $value;
 	}
