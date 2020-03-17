@@ -4,4 +4,4 @@ node_modules
 vendor
 dist/vendor
 dist
-config/latest
+config/latest.js
