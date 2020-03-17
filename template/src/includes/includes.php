@@ -15,17 +15,17 @@ require_once('field-groups/acf.php');
 require_once('settings/index.php');
 require_once('filters/index.php');
 
+<% if (type === 'api') { %>
 //===================
 // WP Core
 //===================
-if (WEBSITE_TYPE === 'api') {
-	require_once('wp-core/init.php');
-}
+require_once('wp-core/init.php');
+<% } %>
 
+<% if (type === 'api') { %>
 //===================
 // Components and partials
 //===================
-if (WEBSITE_TYPE === 'wordpress') {
-	require_once('components/partials/generate.php');
-	require_once('components/svgs/generate.php');
-}
+require_once('components/partials/generate.php');
+require_once('components/svgs/generate.php');
+<% } %>

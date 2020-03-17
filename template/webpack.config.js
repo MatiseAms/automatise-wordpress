@@ -114,7 +114,7 @@ module.exports = {
 				context: './src'
 			}
 		]),
-		<% if(type === 'wordpress') %>
+		<% if(type === 'wordpress') { %>
 	new BrowserSyncPlugin(
 		{
 			proxy: config.url,
