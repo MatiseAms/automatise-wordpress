@@ -5,6 +5,6 @@ require_once('image.php');
 require_once('menu-settings.php');
 require_once('theme.php');
 
-if (WEBSITE_TYPE === 'api') {
-	require_once('url.php');
-}
+<% if (type === 'api') %>
+require_once('url.php');
+<% } %>

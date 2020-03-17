@@ -30,14 +30,12 @@ function change_rest_url($url, $path){
 	return $url;
 }
 
-// Check if we are running on flywheel, if so, enable the home_url and rest_url filters
-if (defined('FLYWHEEL_CONFIG_DIR') || MATISE_ENVIRONMENT === 'local'){
-	foreach( [ 'post', 'page', 'post_type' ] as $type ) {
-		add_filter( $type . '_link', 'change_home_url' , 9999, 2);
-	}
-	add_filter( 'home_url', 'change_home_url' , 9999, 2);
-	add_filter('rest_url', 'change_rest_url', 9999, 4);
+foreach( [ 'post', 'page', 'post_type' ] as $type ) {
+	add_filter( $type . '_link', 'change_home_url' , 9999, 2);
 }
+add_filter( 'home_url', 'change_home_url' , 9999, 2);
+add_filter('rest_url', 'change_rest_url', 9999, 4);
+
 
 
 if (!headers_sent()) {

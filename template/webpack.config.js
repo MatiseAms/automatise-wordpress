@@ -114,13 +114,15 @@ module.exports = {
 				context: './src'
 			}
 		]),
-		new BrowserSyncPlugin(
-			{
-				proxy: config.url,
-				port: PORT,
-				https: true,
-				open: false
-			}
-		)
+		<% if(type === 'wordpress') %>
+	new BrowserSyncPlugin(
+		{
+			proxy: config.url,
+			port: PORT,
+			https: true,
+			open: false
+		}
+	)
+	<% } %>
 	]
 };
