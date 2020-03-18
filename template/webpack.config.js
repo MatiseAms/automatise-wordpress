@@ -114,7 +114,7 @@ module.exports = {
 				context: './src'
 			}
 		]),
-		<% if(type === 'normal') { %>
+		<% if(wordpressType === 'normal') { %>
 	new BrowserSyncPlugin(
 		{
 			proxy: config.url,

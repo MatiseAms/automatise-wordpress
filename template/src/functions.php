@@ -12,7 +12,7 @@
 define('COMMIT', '<commit>');
 define('BRANCH', '<branch_ref>');
 
-define('WORDPRESS_TYPE', '<%= type %>');
+define('WORDPRESS_TYPE', '<%= wordpressType %>');
 
 
 if (BRANCH === 'refs/heads/master'){
@@ -48,10 +48,9 @@ function theme_scripts() {
 	wp_enqueue_style('theme-css', $include_url.'/assets/main.css', array(), date("is"), false);
 	wp_enqueue_script('theme-appjs', get_theme_file_uri( '/assets/main.js' ), array(), date("is"), true );
 }
-<% if (type === 'normal') { %>
+<% if (wordpressType === 'normal') { %>
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
-<% } %>
-<% if (type === 'headless') { %>
+<% } else { %>
 add_action( 'admin_enqueue_scripts', 'theme_scripts' );
 <% } %>
 //===================

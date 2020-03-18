@@ -16,8 +16,8 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"type\":\"headless\"}'",
-		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"type\":\"normal\"}'",
+		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"headless\"}'",
+		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\"}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {

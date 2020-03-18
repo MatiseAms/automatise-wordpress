@@ -68,7 +68,7 @@ module.exports = {
 				store: true
 			},
 			{
-				name: 'type',
+				name: 'wordpressType',
 				message: 'Do you want an API website or WordPress a website?',
 				type: 'list',
 				choices: ['normal', 'headless'],

@@ -36,7 +36,7 @@
 	<?php wp_head();?>
 </head>
 <body <?php body_class(); ?>>
-<% if (type === 'normal') { %>
+<% if (wordpressType === 'normal') { %>
 <?php
 	$header_menu = get_menu_items_by_registered_slug( 'header_menu' );  // change 'header_menu' if you changed the menu location name
 	if (count($header_menu)) {

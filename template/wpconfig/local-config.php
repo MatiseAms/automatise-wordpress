@@ -24,7 +24,7 @@ define('SCRIPT_DEBUG', true);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
 
-$protocol = 'http://'; // with valet we could/should set this to https locally
+$protocol = 'https://'; // with valet we could/should set this to https locally
 
 define('WP_CONTENT_DIR', dirname(__FILE__).'/content');
 define('WP_CONTENT_URL', $protocol.$_SERVER['SERVER_NAME'].'/content');

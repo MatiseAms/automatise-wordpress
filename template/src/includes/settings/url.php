@@ -33,7 +33,7 @@ function change_rest_url($url, $path){
 foreach( [ 'post', 'page', 'post_type' ] as $type ) {
 	add_filter( $type . '_link', 'change_home_url' , 9999, 2);
 }
-add_filter( 'home_url', 'change_home_url' , 9999, 2);
+add_filter('home_url', 'change_home_url' , 9999, 2);
 add_filter('rest_url', 'change_rest_url', 9999, 4);
 
 
