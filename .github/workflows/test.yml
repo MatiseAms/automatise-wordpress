@@ -16,7 +16,8 @@ jobs:
     - name: npm run try
       run: |
         npm ci
-        npm run try
+        npm run try:headless
+        npm run try:normal
       env:
         CI: true
         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
