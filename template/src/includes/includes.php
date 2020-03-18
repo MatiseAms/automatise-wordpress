@@ -15,14 +15,14 @@ require_once('field-groups/acf.php');
 require_once('settings/index.php');
 require_once('filters/index.php');
 
-<% if (type === 'api') { %>
+<% if (type === 'headless') { %>
 //===================
 // WP Core
 //===================
 require_once('wp-core/init.php');
 <% } %>
 
-<% if (type === 'api') { %>
+<% if (type === 'headless') { %>
 //===================
 // Components and partials
 //===================

@@ -69,10 +69,10 @@ module.exports = {
 			},
 			{
 				name: 'type',
-				message: 'Do you want to an API website or WordPress website',
+				message: 'Do you want an API website or WordPress a website?',
 				type: 'list',
-				choices: ['worpress', 'api'],
-				default: 'wordpress'
+				choices: ['normal', 'headless'],
+				default: 'normal'
 			}
 		]
 	},

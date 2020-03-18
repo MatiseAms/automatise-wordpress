@@ -12,7 +12,7 @@
 define('COMMIT', '<commit>');
 define('BRANCH', '<branch_ref>');
 
-define('WEBSITE_TYPE', '<%= type %>');
+define('WORDPRESS_TYPE', '<%= type %>');
 
 
 if (BRANCH === 'refs/heads/master'){

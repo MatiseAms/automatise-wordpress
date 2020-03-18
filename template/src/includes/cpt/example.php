@@ -14,7 +14,7 @@ class YOUR_CPT_NAME {
 	}
 
 	/**
-	 * Add CPT for Cases
+	 * Add CPT for YOUR_CPT_NAME
 	 */
 	public function cpt() {
 		$labels = array(
@@ -34,8 +34,8 @@ class YOUR_CPT_NAME {
 			'view_item'             => __( 'View' ),
 			'view_items'            => __( 'View' ),
 			'search_items'          => __( 'Search' ),
-			'not_found'             => __( 'Case not found' ),
-			'not_found_in_trash'    => __( 'Case not found in Trash' ),
+			'not_found'             => __( 'Not found' ),
+			'not_found_in_trash'    => __( 'Not found in Trash' ),
 			'featured_image'        => __( 'Featured Image' ),
 			'set_featured_image'    => __( 'Set featured image' ),
 			'remove_featured_image' => __( 'Remove featured image' ),
@@ -73,7 +73,7 @@ class YOUR_CPT_NAME {
 	}
 	
 	/**
-	 * Add Cases taxonomy
+	 * Add taxonomy
 	 */
 	public function taxonomy() {
 		$labels = array(
@@ -101,14 +101,14 @@ class YOUR_CPT_NAME {
 			'show_admin_column' => true,
 			'query_var' => true
 		));
-		register_taxonomy_for_object_type('role', 'cases');
+		register_taxonomy_for_object_type('YOUR_CPT_TAXONOMY_NAME', 'YOUR_CPT_NAME');
 	}
 
 	/**
-	 * Add Admin settings for Cases
+	 * Add Admin settings for YOUR_CPT_NAME
 	 */
 	public function admin_settings() {
-		// Save settings for events and Cases
+		// Save settings for events and YOUR_CPT_NAME
 		$id = 'page_for_' . 'YOUR_CPT_NAME';
 		add_filter( 'whitelist_options', function ( $options ) {
 				$options['reading'][] = $id;
@@ -136,7 +136,7 @@ class YOUR_CPT_NAME {
 	/**
 	 * Add wp dropdown for admin settings
 	 */
-	public function settings_field_page_for_cases( $args ) {
+	public function settings_field( $args ) {
 		$id = $args['id'];
 		wp_dropdown_pages(array(
 			'name'	=> $id,

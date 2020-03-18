@@ -2,46 +2,6 @@
 
 define('MAILGUN_API_KEY', '<%= mailgun %>');
 
-// some plugins we don't want locally 
-if (defined('MATISE_ENVIRONMENT')){
-	switch (MATISE_ENVIRONMENT) {
-		case 'local':
-		case 'staging':
-			function deactivate_default_plugins(){
-				$plugins_to_deactivate = array();
-			
-				// if you want the mailgun settings below to have effect, this one should be disabled.
-				if(defined('MAILGUN_API_KEY') && MAILGUN_API_KEY === 'key-undefined'){
-					$plugin_name = '/mailgun/mailgun.php';
-					if(file_exists(WP_PLUGIN_DIR . $plugin_name)){
-						$plugins_to_deactivate[] = $plugin_name;
-					}
-				}
-		
-				$plugin_name = '/w3-total-cache/w3-total-cache.php';
-				if(file_exists(WP_PLUGIN_DIR . $plugin_name)){
-					$plugins_to_deactivate[] = $plugin_name;
-				}
-		
-				$plugin_name = '/wordfence/wordfence.php';
-				if(file_exists(WP_PLUGIN_DIR . $plugin_name)){
-					$plugins_to_deactivate[] = $plugin_name;
-				}
-		
-				$plugin_name = '/backwpup/backwpup.php';
-				if(file_exists(WP_PLUGIN_DIR . $plugin_name)){
-					$plugins_to_deactivate[] = $plugin_name;
-				}
-		
-				deactivate_plugins( 
-					$plugins_to_deactivate
-				);
-			}
-			add_action('admin_init', 'deactivate_default_plugins');
-			break;
-	}
-}
-
 // mailgun temporary matise settings
 if (defined('MAILGUN_API_KEY') && MAILGUN_API_KEY !== 'key-undefined') {
 	switch (MATISE_ENVIRONMENT) {
