@@ -18,9 +18,7 @@
   "require": {
     "johnpbloch/wordpress": "*",
     "matise/advanced-custom-fields-pro": "*",
-    "wpackagist-plugin/wordfence": "*",
     "wpackagist-plugin/mailgun": "*",
-    "wpackagist-plugin/w3-total-cache": "*",
     "wpackagist-plugin/tiny-compress-images": "*",
     "matise/matise-wp-core": "*"
   },
