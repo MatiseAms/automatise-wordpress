@@ -75,10 +75,10 @@ define('WPLANG', '');
 *
 */
 if (!defined('WP_SITEURL')) {
-	define('WP_SITEURL', 'http://'.$_SERVER['SERVER_NAME'].'/wordpress');
+	define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME'].'/wordpress');
 }
 if (!defined('WP_HOME')) {
-	define('WP_HOME',    'http://'.$_SERVER['SERVER_NAME'].'/');
+	define('WP_HOME',    'https://'.$_SERVER['SERVER_NAME'].'/');
 }
 if (!defined('WP_CONTENT_DIR')) {
 	define('WP_CONTENT_DIR', dirname(__FILE__).'/content');

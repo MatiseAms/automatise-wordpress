@@ -4,4 +4,8 @@ node_modules
 vendor
 dist/vendor
 dist
+config/latest
+.vscode
 config/latest.js
+*.sql
+*.sql.gz

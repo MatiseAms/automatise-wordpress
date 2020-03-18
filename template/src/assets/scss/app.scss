@@ -4,4 +4,8 @@
 @import '~matise-gryd/gryd-index.scss';
 @import 'typography/typography';
 @import 'components/index';
+<% if(wordpressType === 'normal') { %>
 @import '~matise-gryd/gryd-once.scss';
+<% } else { %>
+// @import '~matise-gryd/gryd-once.scss'; We don't include this one yet, only if we need to
+<% }  %>

@@ -66,25 +66,20 @@ module.exports = {
 				filter: val => val.toLowerCase(),
 				default: this.gitUser.name,
 				store: true
+			},
+			{
+				name: 'wordpressType',
+				message: 'Do you want an API website or WordPress a website?',
+				type: 'list',
+				choices: ['normal', 'headless'],
+				default: 'normal'
 			}
 		]
 	},
 	actions: [
 		{
 			type: 'add',
-			files: '**',
-			transformExclude: [
-				'grunt/browserify.js',
-				'grunt/clean.js',
-				'grunt/copy.js',
-				'grunt/csso.js',
-				'grunt/eslint.js',
-				'grunt/notify.js',
-				'grunt/postcss.js',
-				'grunt/sass.js',
-				'grunt/uglify.js',
-				'grunt/watch.js'
-			]
+			files: '**'
 		},
 		{
 			type: 'move',

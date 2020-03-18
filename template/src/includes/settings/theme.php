@@ -14,7 +14,7 @@ add_action( 'after_setup_theme', 'theme_name_setup' );
 // Function to remove admin menu
 //===================
 function remove_posts_from_admin() {
-	remove_menu_page( 'edit.php' );
-	remove_menu_page( 'edit-comments.php' );
+	// remove_menu_page( 'edit.php' ); //Remove posts
+	remove_menu_page( 'edit-comments.php' ); //Remove comments
 }
 add_action( 'admin_menu', 'remove_posts_from_admin', 999 );

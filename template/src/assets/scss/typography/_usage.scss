@@ -1,3 +1,4 @@
+<% if(wordpressType === 'normal') { %>
 h1,
 h2,
 h3,
@@ -20,3 +21,4 @@ h1 {
 	@include min-('font-size', 2, 24);
 	@include max-('font-size', 2, 240);
 }
+<% } %>
