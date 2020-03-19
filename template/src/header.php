@@ -39,8 +39,7 @@
 <% if (wordpressType === 'normal') { %>
 <?php
 	$header_menu = get_menu_items_by_registered_slug( 'header_menu' );  // change 'header_menu' if you changed the menu location name
-	wp_reset_postdata();
-	if (count($header_menu)) {
+	if (!empty($header_menu)) {
 		$nav = array();
 		$children = array();
 		$parent_id = '';
