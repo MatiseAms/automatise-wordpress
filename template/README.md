@@ -7,9 +7,7 @@ Start new project on this branch run:
 If you created this with npx, the following will be taken care of:
 
 - npm install
-- composer install
-- valet link (in the dist dir)
-- valet db create
+- npm run valet
 
 To work on this project in this branch run:
 - npm run dev
