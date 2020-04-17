@@ -41,12 +41,22 @@ class Matise_ACF {
 	/**
 	 * Callback function of acf_register_block
 	 * Refers to sections folder
+	 * Output is defined in WP Core, otherwise it is looking for the file
 	 */
 	public function render_callback($block) {
-		$slug = str_replace('acf/', '', $block['name']);
-		// include a template part from within the "acf-blocks" folder
-		if (file_exists(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php"))) {
-			include(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php") );
+		global $output;
+		if ($output === 'json') {
+			echo json_encode(get_fields());
+			return;
+		} else {
+			$slug = str_replace('acf/', '', $block['name']);
+			// include a template part from within the "acf-blocks" folder
+			if (file_exists(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php"))) {
+				include(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php") );
+			} else {
+				echo json_encode(get_fields());
+				return;
+			}
 		}
 	}
 

@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const glob = require('glob');
 const config = require('./config/latest.js');
 
@@ -28,15 +29,33 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.vue$/,
+				use: [
+					{
+						loader: 'vue-loader',
+					},
+				],
+			},
+			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
 				use: [
-					{
+										{
 						loader: 'babel-loader',
 						options: {
-							presets: ['@babel/preset-env'],
-							comments: false
-						}
+							presets: [
+								[
+									'@babel/preset-env',
+									{
+										targets: {
+											esmodules: true,
+										},
+									}
+								]
+							],
+							comments: false,
+							plugins: ['@babel/plugin-transform-runtime']
+						},
 					},
 					'eslint-loader'
 				]
@@ -75,7 +94,10 @@ module.exports = {
 		]
 	},
 	resolve: {
-		modules: ['node_modules']
+		modules: ['node_modules'],
+		alias: {
+			'vue$': config.mode === 'development' ? 'vue/dist/vue.js' : 'vue/dist/vue.min'
+		}
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),
@@ -114,6 +136,7 @@ module.exports = {
 				context: './src'
 			}
 		]),
+		new VueLoaderPlugin(),
 		<% if(wordpressType === 'normal') { %>
 	new BrowserSyncPlugin(
 		{
