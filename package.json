@@ -1,6 +1,6 @@
 {
 	"name": "automatise-wordpress",
-	"version": "1.0.18",
+	"version": "1.0.19",
 	"description": "Create Matise Wordpress.",
 	"engines": {
 		"node": "^13"
