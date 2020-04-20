@@ -26,7 +26,7 @@ module.exports = {
 				filter: val => val.toLowerCase(),
 				validate: function (value) {
 					const invalid = value.match(
-						/[A-Z]|\s|\W/
+						/[A-Z]|\s|[^a-zA-Z0-9_-]/
 					);
 					if (invalid) {
 						return 'Please enter a valid name without uppercase, whitespaces, or symbols';
