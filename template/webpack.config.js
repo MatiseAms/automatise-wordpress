@@ -21,7 +21,8 @@ module.exports = {
 	entry,
 	output: {
 		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets`),
-		filename: '[name].js'
+		filename: '[name].js',
+		publicPath: config.publicPath,
 	},
 	watchOptions: {
 		ignored: ['wpconfig/**', 'node_modules/**', 'vendor/**', 'config/**', 'scripts/**']
