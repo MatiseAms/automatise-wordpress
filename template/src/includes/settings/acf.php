@@ -51,8 +51,8 @@ class Matise_ACF {
 		} else {
 			$slug = str_replace('acf/', '', $block['name']);
 			// include a template part from within the "acf-blocks" folder
-			if (file_exists(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php"))) {
-				include(get_theme_file_path("/includes/components/acf-blocks/{$slug}.php") );
+			if (file_exists(get_theme_file_path("/includes/components/acf-blocks/{$slug}/{$slug}.php"))) {
+				include(get_theme_file_path("/includes/components/acf-blocks/{$slug}/{$slug}.php") );
 			} else {
 				echo json_encode(get_fields());
 				return;
