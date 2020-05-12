@@ -16,7 +16,7 @@ class Matise_ACF {
 	 */
 	public function register_block_types() {
 		// check function exists
-		if( function_exists('acf_register_block_type') ) {
+		if (function_exists('acf_register_block_type')) {
 			// Homepage header
 			// acf_register_block_type(
 			// 	array(
@@ -27,12 +27,16 @@ class Matise_ACF {
 			// 		'category'						=> 'header', // Category defines where the block is set in the gutenberg editor block picker.
 			// 		// 'icon'								=> svg('header'), // You can use dashicons or custom svg element
 			// 		'align'								=> 'full',
-			// 		'enqueue_style' 			=> get_template_directory_uri() . '/assets/homepage-header.css',
-			// 		'enqueue_scripts' 		=> get_template_directory_uri() . '/assets/homepage-header.js',
+			// 		'enqueue_assets'			=> function() {
+			// 			wp_enqueue_style('homepage-header-css', get_theme_file_uri( '/assets/homepage-header.css' ), array(), date("is"), false);
+			// 			wp_enqueue_script('homepage-header-js', get_theme_file_uri( '/assets/homepage-header.js' ), array(), date("is"), true );
+			// 		},
 			// 		'keywords'						=> array( 'header', 'regular'),
 			// 		'supports' 						=> array(
-			// 			'align' 						=> array('full') // customize alignment toolbar, here only 'full' is available
-			// 		)
+			// 			'align' 						=> false,
+			// 			'mode'							=> false
+			// 		),
+			// 		'mode' 								=> 'edit'
 			// 	)
 			// );
 		}

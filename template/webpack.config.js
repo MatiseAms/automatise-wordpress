@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const glob = require('glob');
 const config = require('./config/latest.js');
 
@@ -11,21 +11,28 @@ const { PORT } = process.env;
 const entry = glob.sync('**/*.js', {
 	cwd: './src/includes/components/acf-blocks'
 }).reduce(function (obj, el) {
-	obj[path.parse(el).dir] = './src/includes/components/acf-blocks/' + el;
+	obj[path.parse(el).dir] = './includes/components/acf-blocks/' + el;
 	return obj;
 }, {});
-entry.main = './src/assets/index.js';
+entry.main = './assets/index.js';
 
 module.exports = {
 	mode: config.mode,
 	entry,
+	context: path.resolve(__dirname, 'src'),
 	output: {
 		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets`),
 		filename: '[name].js',
 		publicPath: config.publicPath,
 	},
 	watchOptions: {
-		ignored: ['wpconfig/**', 'node_modules/**', 'vendor/**', 'config/**', 'scripts/**']
+		ignored: [
+			'wpconfig/**',
+			'node_modules/**',
+			'vendor/**',
+			'config/**',
+			'scripts/**'
+		]
 	},
 	module: {
 		rules: [
@@ -55,7 +62,9 @@ module.exports = {
 								]
 							],
 							comments: false,
-							plugins: ['@babel/plugin-transform-runtime']
+							plugins: [
+								'@babel/plugin-transform-runtime'
+							]
 						},
 					},
 					'eslint-loader'
@@ -63,6 +72,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
+				exclude: /dist/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
@@ -77,15 +87,21 @@ module.exports = {
 							]
 						}
 					},
-					'sass-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true,
+							webpackImporter: true
+						}
+					},
 					{
 						loader: 'sass-resources-loader',
 						options: {
 							resources: [
-								'./src/assets/scss/tools/_index.scss'
+								path.resolve(__dirname, 'src/assets/scss/tools/_index.scss')
 							]
-						},
-					},
+						}
+					}
 				]
 			},
 			{
@@ -95,10 +111,23 @@ module.exports = {
 		]
 	},
 	resolve: {
-		modules: ['node_modules'],
+		modules: [
+			'node_modules'
+		],
 		alias: {
-			'vue$': config.mode === 'development' ? 'vue/dist/vue.js' : 'vue/dist/vue.min'
-		}
+			'vue$': config.mode === 'development' ? 'vue/dist/vue.js' : 'vue/dist/vue.min',
+			'Assets': path.resolve(__dirname, 'src/assets'),
+			'Tools': path.resolve(__dirname, 'src/assets/scss/tools'),
+			'Images': path.resolve(__dirname, 'src/assets/img'),
+			'Fonts': path.resolve(__dirname, 'src/assets/fonts')
+		},
+		extensions: [
+			'.sass',
+			'.scss',
+			'.css',
+			'.js',
+			'.json'
+		]
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),
@@ -112,41 +141,39 @@ module.exports = {
 			{
 				from: '**/*.php',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
-				context: './src',
 				ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css']
 			},
 			{
 				from: '**/*',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets/img`),
-				context: './src/assets/img'
+				context: './assets/img'
 			},
 			{
 				from: '**/*.svg',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/components/svgs`),
-				context: './src/includes/components/svgs',
+				context: './includes/components/svgs',
 				ignore: ['generate.php']
 			},
 			{
 				from: '**/*.json',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
-				context: './src/includes/field-groups'
+				context: './includes/field-groups'
 			},
 			{
 				from: 'style.css',
 				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
-				context: './src'
 			}
 		]),
 		new VueLoaderPlugin(),
 		<% if(wordpressType === 'normal') { %>
-	new BrowserSyncPlugin(
-		{
-			proxy: config.url,
-			port: PORT,
-			https: true,
-			open: false
-		}
-	)
-	<% } %>
+		new BrowserSyncPlugin(
+			{
+				proxy: config.url,
+				port: PORT,
+				https: true,
+				open: false
+			}
+		)
+		<% } %>
 	]
 };
