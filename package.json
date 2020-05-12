@@ -22,7 +22,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.0",
-		"sao": "1.7.0",
+		"sao": "1.7.1",
 		"superb": "^4.0.0"
 	},
 	"devDependencies": {},
