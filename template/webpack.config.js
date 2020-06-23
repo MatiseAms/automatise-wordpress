@@ -134,6 +134,7 @@ module.exports = {
 		new StylelintPlugin({
 			configFile: './.stylelintrc.config.js',
 			fix: true,
+			files: './src/**/*.s?(a|c)ss',
 			emitWarning: true,
 			emitError: true
 		}),
