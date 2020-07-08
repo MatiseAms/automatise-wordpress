@@ -137,33 +137,39 @@ module.exports = {
 			emitWarning: true,
 			emitError: true
 		}),
-		new CopyWebpackPlugin([
-			{
-				from: '**/*.php',
-				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
-				ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css']
-			},
-			{
-				from: '**/*',
-				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets/img`),
-				context: './assets/img'
-			},
-			{
-				from: '**/*.svg',
-				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/components/svgs`),
-				context: './includes/components/svgs',
-				ignore: ['generate.php']
-			},
-			{
-				from: '**/*.json',
-				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
-				context: './includes/field-groups'
-			},
-			{
-				from: 'style.css',
-				to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
-			}
-		]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: '**/*.php',
+					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
+					globOptions: {
+						ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css'],
+          }
+				},
+				{
+					from: '**/*',
+					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets/img`),
+					context: './assets/img'
+				},
+				{
+					from: '**/*.svg',
+					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/components/svgs`),
+					context: './includes/components/svgs',
+					globOptions: {
+						ignore: ['generate.php']
+          }
+				},
+				{
+					from: '**/*.json',
+					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
+					context: './includes/field-groups'
+				},
+				{
+					from: 'style.css',
+					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
+				}
+			]
+		}),
 		new VueLoaderPlugin(),
 		<% if(wordpressType === 'normal') { %>
 		new BrowserSyncPlugin(
