@@ -16,7 +16,7 @@ class ACF {
 		add_filter('acf/fields/flexible_content/layout_title', array($this, 'change_reusable_block_title'), 10, 4 );
 	}
 
-	/** 
+	/**
 	 * Change title on reusable block
 	 * $title - $title of the field, return value aswell
 	 * $field - Field data
@@ -66,13 +66,13 @@ class ACF {
 			return Basics::get_image_object($value);
 		}
 		if ($field['type'] === 'image' && !$value) {
-			return new \StdClass();
+			return array();
 		}
 		return $value;
 	}
 
 	/**
-	 * Add extra tag to page header 
+	 * Add extra tag to page header
 	 */
 	public function add_tag_for_page_header($field, $post_id) {
 		if (($post_type = get_post_type($post_id)) === 'cases') {
