@@ -1,26 +1,16 @@
 {
-  "name": "matise/<%= packageName %>",
+  "name": "<%= packageName %>",
   "description": "<%= description %>",
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org"
-    },
-    {
-      "type": "composer",
-      "url": "https://matise:development@plugins.matise.nl"
-    },
-    {
-      "type": "vcs",
-      "url": "https://github.com/matiseams/matise-wp-core"
     }
   ],
   "require": {
     "johnpbloch/wordpress": "*",
-    "matise/advanced-custom-fields-pro": "*",
     "wpackagist-plugin/mailgun": "*",
-    "wpackagist-plugin/tiny-compress-images": "*",
-    "matise/matise-wp-core": "*"
+    "wpackagist-plugin/tiny-compress-images": "*"
   },
   "extra": {
     "wordpress-install-dir": "dist/wordpress",

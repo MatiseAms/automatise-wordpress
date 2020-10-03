@@ -3,7 +3,7 @@
 define('WP_CACHE', false); // Added by W3 Total Cache
 
 /**
-* Wordpress configuration by Matise.
+* Wordpress configuration by <%= author %>.
 */
 
 /**

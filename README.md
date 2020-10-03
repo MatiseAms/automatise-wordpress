@@ -1,11 +1,8 @@
-# Create Matise Wordpress App
+# Create a new Wordpress installation using Webpack
 
-[![NPM version](https://img.shields.io/npm/v/automatise-wordpress.svg?style=flat)](https://npmjs.com/package/automatise-wordpress) 
+[![NPM version](https://img.shields.io/npm/v/automatise-wordpress.svg?style=flat)](https://npmjs.com/package/automatise-wordpress)
 [![NPM downloads](https://img.shields.io/npm/dm/automatise-wordpress.svg?style=flat)](https://npmjs.com/package/automatise-wordpress)
 
-> Create a Matise Wordpress project
-
-</details>
 
 ## Usage
 
@@ -17,7 +14,9 @@ npx automatise-wordpress <my-project>
 
 ## Credits
 
-- Matise - [matise.nl](https://www.matise.nl)
+- [Cyd Stumpel](cydstumpel.nl)
+- [Stephan Hoogland](https://www.shoogland.com/)
+- [Dennis Spierenburg](https://github.com/dipsaus9)
 
 ## Critical information
 This package creates a simple Wordpress installation, for the api version checkout: https://github.com/MatiseAms/create-matise-wordpress

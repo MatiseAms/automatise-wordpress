@@ -2,7 +2,7 @@
 /**
 * Single post
 *
-* @author       Matise (matise.nl)
+* @author       <%= author %>
 * @package      Wordpress
 * @subpackage   <%= name %>
 * @version      1.0

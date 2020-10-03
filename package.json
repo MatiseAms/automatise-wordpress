@@ -1,6 +1,6 @@
 {
 	"name": "automatise-wordpress",
-	"version": "1.0.25",
+	"version": "1.1.0",
 	"description": "Create Matise Wordpress.",
 	"engines": {
 		"node": "^13"
@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {},
 	"authors": [
-		"Cyd Stumpel <cyd@matise.nl>",
+		"Cyd Stumpel <info@cydstumpel.nl>",
 		"Dennis Spierenburg <dennis@matise.nl>",
 		"Stephan Hoogland <stephan@matise.nl>"
 	],
