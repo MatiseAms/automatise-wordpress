@@ -15,10 +15,10 @@
   "extra": {
     "wordpress-install-dir": "dist/wordpress",
     "installer-paths": {
-      "dist/content/plugins/{$name}/": [
+      "dist/wp-content/plugins/{$name}/": [
         "type:wordpress-plugin"
       ],
-      "dist/content/themes/{$name}/": [
+      "dist/wp-content/themes/{$name}/": [
         "type:wordpress-theme"
       ]
     }

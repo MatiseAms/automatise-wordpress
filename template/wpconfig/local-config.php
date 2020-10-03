@@ -19,7 +19,7 @@ define('SCRIPT_DEBUG', true);
 
 $protocol = 'https://'; // with valet we could/should set this to https locally
 
-define('WP_CONTENT_DIR', dirname(__FILE__).'/content');
-define('WP_CONTENT_URL', $protocol.$_SERVER['SERVER_NAME'].'/content');
+define('WP_CONTENT_DIR', dirname(__FILE__).'/wp-content');
+define('WP_CONTENT_URL', $protocol.$_SERVER['SERVER_NAME'].'/wp-content');
 
 define('ACFPATH', dirname(__FILE__) . '/../src/includes/field-groups' );
