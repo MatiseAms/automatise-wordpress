@@ -4,7 +4,7 @@
 set -e
 
 # copy dev config to the latest.js (which is used in nuxt.config.js)
-rm -rf ./dist/content/themes
+rm -rf ./dist/wp-content/themes
 
 cp -R ./wpconfig/default/ ./dist/
 

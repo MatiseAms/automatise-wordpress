@@ -21,7 +21,7 @@ module.exports = {
 	entry,
 	context: path.resolve(__dirname, 'src'),
 	output: {
-		path: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets`),
+		path: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/assets`),
 		filename: '[name].js',
 		publicPath: config.publicPath,
 	},
@@ -79,12 +79,14 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							ident: 'postcss',
-							plugins: (loader) => [
-								require('postcss-import')({ root: loader.resourcePath }),
-								require('postcss-preset-env')(),
-								require('cssnano')()
-							]
+							postcssOptions: {
+								ident: 'postcss',
+								plugins: (loader) => [
+									require('postcss-import')({ root: loader.resourcePath }),
+									require('postcss-preset-env')(),
+									require('cssnano')()
+								]
+							}
 						}
 					},
 					{
@@ -141,19 +143,19 @@ module.exports = {
 			patterns: [
 				{
 					from: '**/*.php',
-					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}`),
 					globOptions: {
 						ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css'],
           }
 				},
 				{
 					from: '**/*',
-					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/assets/img`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/assets/img`),
 					context: './assets/img'
 				},
 				{
 					from: '**/*.svg',
-					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/components/svgs`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/components/svgs`),
 					context: './includes/components/svgs',
 					globOptions: {
 						ignore: ['generate.php']
@@ -161,17 +163,17 @@ module.exports = {
 				},
 				{
 					from: '**/*.json',
-					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}/includes/field-groups`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/field-groups`),
 					context: './includes/field-groups'
 				},
 				{
 					from: 'style.css',
-					to: path.resolve(__dirname, `dist/content/themes/${config.themeName}`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}`),
 				}
 			]
 		}),
 		new VueLoaderPlugin(),
-		<% if(wordpressType === 'normal') { %>
+
 		new BrowserSyncPlugin(
 			{
 				proxy: config.url,
@@ -180,6 +182,6 @@ module.exports = {
 				open: false
 			}
 		)
-		<% } %>
+
 	]
 };
