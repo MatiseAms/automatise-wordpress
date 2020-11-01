@@ -1,4 +1,18 @@
-  
 // Add your variables here
 
 $base-transition: 0.4s;
+$base-ease: ease-out;
+
+@mixin hocus {
+  &:focus, &:hover {
+    @content;
+  }
+  &:focus-within {
+    @content;
+  }
+}
+
+.sr-only {
+	position: absolute;
+	text-indent: -9999px;
+}
