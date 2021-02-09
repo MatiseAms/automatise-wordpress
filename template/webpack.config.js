@@ -1,20 +1,20 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const StylelintPlugin = require('stylelint-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const glob = require('glob');
-const config = require('./config/latest.js');
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const glob = require('glob')
+const config = require('./config/latest.js')
 
-const { PORT } = process.env;
+const { PORT } = process.env
 const entry = glob.sync('**/*.js', {
 	cwd: './src/includes/components/acf-blocks'
 }).reduce(function (obj, el) {
-	obj[path.parse(el).dir] = './includes/components/acf-blocks/' + el;
-	return obj;
-}, {});
-entry.main = './assets/index.js';
+	obj[path.parse(el).dir] = './includes/components/acf-blocks/' + el
+	return obj
+}, {})
+entry.main = './assets/index.js'
 
 module.exports = {
 	mode: config.mode,
@@ -186,4 +186,4 @@ module.exports = {
 		)
 
 	]
-};
+}

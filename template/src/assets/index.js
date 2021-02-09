@@ -3,5 +3,5 @@
  * main.js
  * main.css
  */
-import './scss/app.scss';
-import './js/index.js';
+import './scss/app.scss'
+import './js/index.js'
