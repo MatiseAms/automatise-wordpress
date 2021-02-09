@@ -1,12 +1,6 @@
 <?php
 function svg($svg_name) {
-	switch ($svg_name){
-		case 'arrow';
-			$tpl = get_template_directory().'/includes/components/svgs/arrow.svg';
-		break;
-		default:
-			$tpl = $svg_name;
-	}
+	$tpl = get_template_directory().'/includes/components/svgs/'.$svg_name.'.svg';
 	if ( file_exists($tpl) ){
 		ob_start();
 		include($tpl);

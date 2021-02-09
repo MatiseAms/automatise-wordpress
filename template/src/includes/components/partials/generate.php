@@ -1,10 +1,6 @@
 <?php
 function partial($partial_name, $data){
-	switch($partial_name){
-		case 'tile';
-			$tpl = get_template_directory().'/includes/components/partials/tile.php';
-			break;
-	}
+	$tpl = get_template_directory().'/includes/components/partials/'.$svg_name.'.php';
 	if (file_exists($tpl)) {
 		ob_start();
 		include($tpl);
