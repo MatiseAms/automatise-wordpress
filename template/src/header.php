@@ -54,26 +54,26 @@
 					<ul class="nav__list">
 						<?php
 						foreach ($nav as $item) { ?>
-							<li class="nav__item <?php echo isset($item->children) ? 'nav__item--parent' : '' ?>">
+							<li class="nav__item <?= isset($item->children) ? 'nav__item--parent' : '' ?>">
 								<div class="nav__text-container">
-									<a class="nav__link" href="<?php echo $item->url ?>">
-										<span class="nav__text"><?php echo $item->title ?></span>
+									<a class="nav__link" href="<?= $item->url ?>">
+										<span class="nav__text"><?= $item->title ?></span>
 									</a>
 									<?php if (isset($item->children)) { ?>
-										<div class="nav__arrow" opens="<?php echo $item->ID ?>">
-											<?php echo svg('arrow'); ?>
+										<div class="nav__arrow" opens="<?= $item->ID ?>">
+											<?= svg('arrow'); ?>
 										</div>
 									<?php } ?>
 								</div>
 								<?php
 								if (isset($item->children)) { ?>
-									<ul class="nav__list nav__list--children" id="<?php echo $item->ID ?>">
+									<ul class="nav__list nav__list--children" id="<?= $item->ID ?>">
 										<?php
 										foreach ($item->children as $child) {
 											?>
 											<li class="nav__item">
-												<a class="nav__link" href="<?php echo $child->url ?>">
-													<span class="nav__text"><?php echo $child->title ?></span>
+												<a class="nav__link" href="<?= $child->url ?>">
+													<span class="nav__text"><?= $child->title ?></span>
 												</a>
 											</li>
 											<?php

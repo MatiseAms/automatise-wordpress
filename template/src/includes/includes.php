@@ -22,7 +22,7 @@ require_once('filters/index.php');
 require_once('wp-core/init.php');
 <% } %>
 
-<% if (wordpressType === 'headless') { %>
+<% if (wordpressType === 'normal') { %>
 //===================
 // Components and partials
 //===================
