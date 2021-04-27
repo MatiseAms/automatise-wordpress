@@ -1,5 +1,5 @@
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-<% if (locomotive === true) { %>
+<% if (locomotive === 'yes') { %>
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

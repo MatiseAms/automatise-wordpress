@@ -1,6 +1,6 @@
 
 import 'core-js/stable'
-<% if (locomotive === true) { %>
+<% if (locomotive === 'yes') { %>
 	import Highway from '@dogstudio/highway/'
 	import TransitionRouter from './page-transitions/router.js'
 	import { initScroll, locoScroll, stopScroll } from './base/scroll.js'
@@ -14,7 +14,7 @@ const isIE = /MSIE|Trident/.test(ua)
 
 const initApp = () => {
 	initPage()
-	<% if (locomotive === true) { %>
+	<% if (locomotive === 'yes') { %>
 
 	initScroll()
 	if (!isIE) {

@@ -78,8 +78,8 @@ module.exports = {
 				name: 'locomotive',
 				message: 'Add locomotive scroll?',
 				type: 'list',
-				choices: [true, false],
-				default: true
+				choices: ['yes', 'nope'],
+				default: 'yes'
 			}
 		]
 	},

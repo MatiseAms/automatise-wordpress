@@ -9,7 +9,7 @@
  * @since        1.0
  */
 ?>
-<% if (locomotive === true) { %>
+<% if (locomotive === 'yes') { %>
 				</main>
 			</div>
 		</div>
