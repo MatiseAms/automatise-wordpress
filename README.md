@@ -14,7 +14,7 @@ npx automatise-wordpress <my-project>
 
 ## Credits
 
-- [Cyd Stumpel](cydstumpel.nl)
+- [Cyd Stumpel](https://cydstumpel.nl)
 - [Stephan Hoogland](https://www.shoogland.com/)
 - [Dennis Spierenburg](https://github.com/dipsaus9)
 
