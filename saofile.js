@@ -52,7 +52,7 @@ module.exports = {
 			{
 				name: 'description',
 				message: 'Project description',
-				default: `My ${superb.random()} Matise Wordpress project`
+				default: `My ${superb.random()} Automatise Wordpress project`
 			},
 			{
 				name: 'mailgun',
@@ -63,7 +63,6 @@ module.exports = {
 				name: 'author',
 				message: 'Author name',
 				type: 'string',
-				filter: val => val.toLowerCase(),
 				default: this.gitUser.name,
 				store: true
 			},
