@@ -57,3 +57,9 @@ add_action( 'admin_enqueue_scripts', 'theme_scripts' );
 // Includes folder includes
 //===================
 require_once('includes/includes.php');
+
+// Update CSS within in Admin
+function admin_style() {
+	wp_enqueue_style('admin-styles', get_template_directory_uri().'/assets/admin.css');
+}
+add_action('admin_enqueue_scripts', 'admin_style');

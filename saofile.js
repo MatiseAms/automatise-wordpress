@@ -1,11 +1,11 @@
-const superb = require('superb');
-const axios = require('axios');
-const chalk = require('chalk');
+const superb = require('superb')
+const axios = require('axios')
+const chalk = require('chalk')
 
 const getSalts = async () => {
-	let response = await axios.get('https://api.wordpress.org/secret-key/1.1/salt');
-	return response.data;
-};
+	let response = await axios.get('https://api.wordpress.org/secret-key/1.1/salt')
+	return response.data
+}
 
 
 module.exports = {
@@ -27,12 +27,12 @@ module.exports = {
 				validate: function (value) {
 					const invalid = value.match(
 						/[A-Z]|\s|[^a-zA-Z0-9_-]/
-					);
+					)
 					if (invalid) {
-						return 'Please enter a valid name without uppercase, whitespaces, or symbols';
+						return 'Please enter a valid name without uppercase, whitespaces, or symbols'
 					}
 
-					return true;
+					return true
 				}
 			},
 			{
@@ -42,11 +42,11 @@ module.exports = {
 				validate: function (value) {
 					var invalid = value.toLowerCase().match(
 						/[A-Z]|\s|\W/
-					);
+					)
 					if (invalid) {
-						return 'Please enter a name without whitespaces';
+						return 'Please enter a name without whitespaces'
 					}
-					return true;
+					return true
 				}
 			},
 			{
@@ -73,6 +73,13 @@ module.exports = {
 				type: 'list',
 				choices: ['normal', 'headless'],
 				default: 'normal'
+			},
+			{
+				name: 'locomotive',
+				message: 'Add locomotive scroll?',
+				type: 'list',
+				choices: [true, false],
+				default: true
 			}
 		]
 	},
@@ -97,21 +104,21 @@ module.exports = {
 
 		await this.npmInstall({
 			packages: [
-				"enhanced-resolve",
-				"glob",
-				"postcss-preset-env",
-				"sass-resources-loader",
-				"url-loader",
-				"copy-webpack-plugin",
-				"browser-sync",
-				"browser-sync-webpack-plugin",
-				"eslint",
-				"eslint-loader",
-				"matise-gryd",
-				"@babel/core",
-				"@babel/preset-env",
-				"autoprefixer",
-				"babel-loader",
+				'enhanced-resolve',
+				'glob',
+				'postcss-preset-env',
+				'sass-resources-loader',
+				'url-loader',
+				'copy-webpack-plugin',
+				'browser-sync',
+				'browser-sync-webpack-plugin',
+				'eslint',
+				'eslint-loader',
+				'matise-gryd',
+				'@babel/core',
+				'@babel/preset-env',
+				'autoprefixer',
+				'babel-loader',
 				'@babel/plugin-transform-runtime',
 				'@babel/runtime',
 				'babel-preset-env',
@@ -122,51 +129,55 @@ module.exports = {
 				'vue',
 				'vue-loader',
 				'@matise/ui-fields',
-				"babelify",
-				"clean-webpack-plugin",
-				"css-byebye",
-				"css-loader",
-				"cssnano",
-				"eslint-plugin-prettier",
-				"extract-text-webpack-plugin",
-				"file-loader",
-				"mini-css-extract-plugin",
-				"node-sass",
-				"postcss-alias",
-				"postcss-assets",
-				"postcss-center",
-				"postcss-loader",
-				"postcss-sass-loader",
-				"postcss-size",
-				"postcss-sprites",
-				"postcss-svg",
-				"postcss-vmin",
-				"sass-loader",
-				"style-loader",
-				"style-resources-loader",
-				"stylelint",
-				"stylelint-webpack-plugin",
-				"webpack",
-				"webpack-cli"
+				'babelify',
+				'clean-webpack-plugin',
+				'css-byebye',
+				'css-loader',
+				'cssnano',
+				'eslint-plugin-prettier',
+				'extract-text-webpack-plugin',
+				'file-loader',
+				'mini-css-extract-plugin',
+				'node-sass',
+				'postcss-alias',
+				'postcss-assets',
+				'postcss-center',
+				'postcss-loader',
+				'postcss-sass-loader',
+				'postcss-size',
+				'postcss-sprites',
+				'postcss-svg',
+				'postcss-vmin',
+				'sass-loader',
+				'style-loader',
+				'style-resources-loader',
+				'stylelint',
+				'stylelint-webpack-plugin',
+				'webpack',
+				'webpack-cli',
+				'core-js',
+				'locomotive-scroll',
+				'gsap',
+				'@dogstudio/highway'
 			],
 			saveDev: true
 		})
 
 		this.showProjectTips()
 
-		console.log();
-		console.log(chalk.bold(`  To get started:\n`));
-		console.log(`	- Go to project dir (if not already present)`);
-		console.log(`		${chalk.magenta(`cd ${this._answers.packageName}`)}`);
-		console.log(`	- Setup valet`);
-		console.log(`		${chalk.magenta(`npm run valet`)}`);
-		console.log(`	- Start dev`);
-		console.log(`		${chalk.magenta(`npm run dev`)}`);
-		console.log(`	- Install wordpress`);
-		console.log(`	- Activate your theme`);
-		console.log(`	- If you have wp cli installed you can use:`);
-		console.log(`		${chalk.magenta(`wp theme activate ${this._answers.packageName}`)}`);
-		console.log(`	- Start developing!`);
-		console.log();
+		console.log()
+		console.log(chalk.bold('  To get started:\n'))
+		console.log('	- Go to project dir (if not already present)')
+		console.log(`		${chalk.magenta(`cd ${this._answers.packageName}`)}`)
+		console.log('	- Setup valet')
+		console.log(`		${chalk.magenta('npm run valet')}`)
+		console.log('	- Start dev')
+		console.log(`		${chalk.magenta('npm run dev')}`)
+		console.log('	- Install wordpress')
+		console.log('	- Activate your theme')
+		console.log('	- If you have wp cli installed you can use:')
+		console.log(`		${chalk.magenta(`wp theme activate ${this._answers.packageName}`)}`)
+		console.log('	- Start developing!')
+		console.log()
 	}
 }

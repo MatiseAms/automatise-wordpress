@@ -1,0 +1,13 @@
+.wp-block {
+	max-width: 1024px;
+	&.block-editor-block-list__block {
+		&::before {
+			content: attr(data-title);
+			display: block;
+			background: #000;
+			color: #fff;
+			padding: 0.5rem 1rem;
+			font-size: 0.75rem;
+		}
+	}
+}

@@ -15,6 +15,7 @@ const entry = glob.sync('**/*.js', {
 	return obj
 }, {})
 entry.main = './assets/index.js'
+entry.admin = './assets/admin.js'
 
 module.exports = {
 	mode: config.mode,
@@ -157,7 +158,7 @@ module.exports = {
 				},
 				{
 					from: '**/*.svg',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/components/svgs`),
+					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/svgs`),
 					context: './includes/components/svgs',
 					globOptions: {
 						ignore: ['generate.php']

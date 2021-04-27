@@ -1,6 +1,6 @@
 <?php
 function svg($svg_name) {
-	$tpl = get_template_directory().'/includes/components/svgs/'.$svg_name.'.svg';
+	$tpl = get_template_directory().'/includes/svgs/'.$svg_name.'.svg';
 	if ( file_exists($tpl) ){
 		ob_start();
 		include($tpl);

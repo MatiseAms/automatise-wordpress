@@ -13,7 +13,6 @@ require_once('field-groups/acf.php');
 // Theme specific functions functions
 //===================
 require_once('settings/index.php');
-require_once('filters/index.php');
 
 <% if (wordpressType === 'headless') { %>
 //===================
@@ -26,6 +25,5 @@ require_once('wp-core/init.php');
 //===================
 // Components and partials
 //===================
-require_once('components/partials/generate.php');
-require_once('components/svgs/generate.php');
+require_once('svgs/generate.php');
 <% } %>
