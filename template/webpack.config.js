@@ -159,7 +159,7 @@ module.exports = {
 				{
 					from: '**/*.svg',
 					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/svgs`),
-					context: './includes/components/svgs',
+					context: './includes/svgs',
 					globOptions: {
 						ignore: ['generate.php']
           }
