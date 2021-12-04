@@ -3,14 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const glob = require('glob')
 const config = require('./config/latest.js')
 
-const { PORT } = process.env
+const {
+	PORT
+} = process.env
 const entry = glob.sync('**/*.js', {
 	cwd: './src/includes/components/acf-blocks'
-}).reduce(function (obj, el) {
+}).reduce(function(obj, el) {
 	obj[path.parse(el).dir] = './includes/components/acf-blocks/' + el
 	return obj
 }, {})
@@ -36,20 +37,10 @@ module.exports = {
 		]
 	},
 	module: {
-		rules: [
-			{
-				test: /\.vue$/,
-				use: [
-					{
-						loader: 'vue-loader',
-					},
-				],
-			},
-			{
+		rules: [{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
-				use: [
-					{
+				use: [{
 						loader: 'babel-loader',
 						options: {
 							presets: [
@@ -83,7 +74,9 @@ module.exports = {
 							postcssOptions: {
 								ident: 'postcss',
 								plugins: (loader) => [
-									require('postcss-import')({ root: loader.resourcePath }),
+									require('postcss-import')({
+										root: loader.resourcePath
+									}),
 									require('postcss-preset-env')(),
 									require('cssnano')()
 								]
@@ -108,11 +101,9 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(png|woff|woff2|eot|ttf|svg)$/,
-				use: {
-					loader: 'url-loader?limit=100'
-				}
-			}
+				test: /\.(jpe?g|svg|png|gif|ico|eot|ttf|woff2?)(\?v=\d+\.\d+\.\d+)?$/i,
+				type: 'asset/resource',
+			},
 		]
 	},
 	resolve: {
@@ -120,7 +111,6 @@ module.exports = {
 			'node_modules'
 		],
 		alias: {
-			'vue$': config.mode === 'development' ? 'vue/dist/vue.js' : 'vue/dist/vue.min',
 			'Assets': path.resolve(__dirname, 'src/assets'),
 			'Tools': path.resolve(__dirname, 'src/assets/scss/tools'),
 			'Images': path.resolve(__dirname, 'src/assets/img'),
@@ -143,13 +133,12 @@ module.exports = {
 			emitError: true
 		}),
 		new CopyWebpackPlugin({
-			patterns: [
-				{
+			patterns: [{
 					from: '**/*.php',
 					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}`),
 					globOptions: {
 						ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css'],
-          }
+					}
 				},
 				{
 					from: '**/*',
@@ -162,7 +151,7 @@ module.exports = {
 					context: './includes/svgs',
 					globOptions: {
 						ignore: ['generate.php']
-          }
+					}
 				},
 				{
 					from: '**/*.json',
@@ -175,16 +164,12 @@ module.exports = {
 				}
 			]
 		}),
-		new VueLoaderPlugin(),
-
-		new BrowserSyncPlugin(
-			{
-				proxy: config.url,
-				port: PORT,
-				https: true,
-				open: false
-			}
-		)
+		new BrowserSyncPlugin({
+			proxy: config.url,
+			port: PORT,
+			https: true,
+			open: false
+		})
 
 	]
 }

@@ -1,13 +1,40 @@
 .wp-block {
 	max-width: 1024px;
+
 	&.block-editor-block-list__block {
 		&::before {
 			content: attr(data-title);
 			display: block;
-			background: #000;
-			color: #fff;
-			padding: 0.5rem 1rem;
+			background: #e3e3e3;
+			color: #252525;
+			padding: 0.25rem 0.75rem;
 			font-size: 0.75rem;
+			width: max-content;
+			text-transform: uppercase;
 		}
+	}
+}
+
+p.description {
+	font-size: 10px !important;
+}
+
+.block-editor-block-types-list__item-icon {
+	padding: 0;
+	width: unset;
+	height: unset;
+
+	.block-editor-block-icon {
+		width: unset;
+		height: unset;
+	}
+
+	svg {
+		border: 1px solid #aaa;
+		padding: 0.5rem;
+		width: 100px;
+		height: 100px;
+		max-width: none;
+		max-height: none;
 	}
 }
