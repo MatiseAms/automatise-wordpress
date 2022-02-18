@@ -30,10 +30,6 @@ jobs:
           args: 'scripts/add-commit.mjs'
       - name: npm setup base files
         run: npm run setup
-      - name: Composer Install
-        uses: MatiseAms/composer-action/7.2/install@master
-        env:
-          COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
     # Deploy
     #   - name: npm build production
     #     run: npm run production
@@ -43,19 +39,4 @@ jobs:
     #       METHOD: sftp
     #       LOCAL_DIR: dist/wp-content/themes/[theme_name]
     #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/themes/[theme_name]
-    #       ARGS: --verbose
-    #   - name: sftp matise-wp-core to flywheel
-    #     uses: MatiseAms/FTP-Deploy-Action@master
-    #     env:
-    #       METHOD: sftp
-    #       LOCAL_DIR: dist/wp-content/plugins/matise-wp-core
-    #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/plugins/matise-wp-core
-    #       ARGS: --verbose
-
-    #   - name: sftp vendor to flywheel
-    #     uses: MatiseAms/FTP-Deploy-Action@master
-    #     env:
-    #       METHOD: sftp
-    #       LOCAL_DIR: dist/vendor
-    #       REMOTE_DIR: org-matise/[flywheel_project_name]/vendor
     #       ARGS: --verbose
