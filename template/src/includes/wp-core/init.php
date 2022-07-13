@@ -2,8 +2,8 @@
 
 namespace Matise;
 
-use Matise\Register_Fields;
-use Matise\Utilities;
+use Automatise\Register_Fields;
+use Automatise\Utilities;
 
 add_action( 'init', __NAMESPACE__ . '\\matise_start', 0);
 /**

@@ -1,8 +1,15 @@
 <?php
-namespace Matise\Settings;
+namespace Automatise\Settings;
 
-class Matise_ACF
+class Automatise_ACF
 {
+	private $blocks = array(
+		// 'page-header' => array(
+		// 	'title' => 'Page header',
+		// 	'category' => 'header',
+		// 	'keywords' => array('header')
+		// ),
+	);
 	/**
 	* Constructor to init acf
 	*/
@@ -36,28 +43,26 @@ class Matise_ACF
 	{
 		// check function exists
 		if (function_exists('acf_register_block_type')) {
-			// Homepage header
-			// acf_register_block_type(
-			// 	array(
-			// 		'name'								=> 'homepage-header',
-			// 		'title'								=> __('Homepage header'),
-			// 		'description'					=> __('Homepage header with only one image'),
-			// 		'render_callback'			=> array($this, 'render_callback'),
-			// 		'category'						=> 'header', // Category defines where the block is set in the gutenberg editor block picker.
-			// 		// 'icon'								=> svg('acf/header'), // You can use dashicons or custom svg element
-			// 		'align'								=> 'full',
-			// 		'enqueue_assets'			=> function() {
-			// 			wp_enqueue_style('homepage-header-css', get_theme_file_uri( '/assets/homepage-header.css' ), array(), date("is"), false);
-			// 			wp_enqueue_script('homepage-header-js', get_theme_file_uri( '/assets/homepage-header.js' ), array(), date("is"), true );
-			// 		},
-			// 		'keywords'						=> array( 'header', 'regular'),
-			// 		'supports' 						=> array(
-			// 			'align' 						=> false,
-			// 			'mode'							=> false
-			// 		),
-			// 		'mode' 								=> 'edit'
-			// 	)
-			// );
+			if ($this->blocks) {
+				foreach ($this->blocks as $key => $block) {
+					acf_register_block_type(
+						array(
+							'name'								=> $key,
+							'title'								=> $block['title'],
+							'render_callback'			=> array($this, 'render_callback'),
+							'category'						=> $block['category'], // Category defines where the block is set in the gutenberg editor block picker.
+							'icon'								=> svg('acf/'.$key), // You can use dashicons or custom svg element
+							'align'								=> 'full',
+							'keywords'						=> $block['keywords'],
+							'supports' 						=> array(
+								'align' 						=> false,
+								'mode'							=> false
+							),
+							'mode' 								=> 'edit'
+						)
+					);
+				}
+			}
 		}
 	}
 
@@ -90,10 +95,13 @@ class Matise_ACF
 	public function allowed_blocks_types($allowed_blocks, $post)
 	{
 		$homepage_id = get_option('page_on_front');
-		$allowed = array(
-		);
-		// 'acf/homepage-header'
+		$allowed = array();
+		if ($this->blocks) {
+			foreach ($this->blocks as $key => $block) {
+				$allowed[] = 'acf/'.$key;
+			}
+		}
 		return $allowed;
 	}
 }
-new Matise_ACF();
+new Automatise_ACF();

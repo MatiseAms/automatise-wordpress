@@ -63,3 +63,17 @@ function admin_style() {
 	wp_enqueue_style('admin-styles', get_template_directory_uri().'/assets/admin.css');
 }
 add_action('admin_enqueue_scripts', 'admin_style');
+
+
+function acf_change_icon_on_files ( $icon, $mime, $attachment_id ){ // Display thumbnail instead of document.png
+		
+		if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/upload.php' ) === false && $mime !== 'video/mp4' ){
+			$get_image = wp_get_attachment_image_src ( $attachment_id, 'thumbnail' );
+			if ( $get_image ) {
+				$icon = $get_image[0];
+			} 
+		}
+		return $icon;
+	}
+	
+	add_filter( 'wp_mime_type_icon', 'acf_change_icon_on_files', 10, 3 );

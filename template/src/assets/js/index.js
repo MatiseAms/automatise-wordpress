@@ -11,6 +11,7 @@ export let H
 const ua = window.navigator.userAgent
 const isIE = /MSIE|Trident/.test(ua)
 <% } %>
+import { initLazyLoad } from './base/lazy-Load'
 
 const initApp = () => {
 	initPage()
@@ -39,6 +40,7 @@ const initApp = () => {
 
 export const initPage = () => {
 	// Enter functions to init on page init
+	initLazyLoad()
 }
 
 document.addEventListener('DOMContentLoaded', initApp)

@@ -1,4 +1,14 @@
 <?php
+if (function_exists('acf_add_options_page')) {
+	$parent = acf_add_options_page(
+		array(
+			'page_title' => 'Site options',
+			'menu_slug' => 'acf_options_notice',
+			'position'   => 63,
+			'autoload' => true,
+		)
+	);
+}
 
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 

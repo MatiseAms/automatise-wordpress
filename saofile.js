@@ -109,7 +109,7 @@ module.exports = {
 				'sass-resources-loader@2.2.4',
 				'url-loader@4.1.1',
 				'copy-webpack-plugin@8.1.1',
-				'browser-sync@2.27.7',
+				'browser-sync@2.27.10',
 				'browser-sync-webpack-plugin@2.3.0',
 				'eslint@7.32.0',
 				'eslint-loader@4.0.2',

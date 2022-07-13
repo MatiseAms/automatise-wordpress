@@ -2,6 +2,7 @@
 
 $base-transition: 0.4s;
 $base-ease: ease-out;
+$bezier: cubic-bezier(.17, .67, 0, 1);
 
 @mixin hocus {
   &:focus, &:hover {

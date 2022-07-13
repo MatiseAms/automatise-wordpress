@@ -1,6 +1,6 @@
 <?php
 
-namespace Matise\CPT;
+namespace Automatise\CPT;
 
 class YOUR_CPT_NAME {
 
