@@ -6,6 +6,6 @@
 <% } else { %>
 // @import '~matise-gryd/gryd-once.scss'; We don't include this one yet, only if we need to
 <% }  %>
-<% if (locomotive === 'yes') { %>
-@import 'scroll'
+<% if (smoothscroll === 'yes') { %>
+@import 'scroll';
 <% } %>

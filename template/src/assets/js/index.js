@@ -1,6 +1,6 @@
 
 import 'core-js/stable'
-<% if (locomotive === 'yes') { %>
+<% if (smoothscroll === 'yes') { %>
 	import Highway from '@dogstudio/highway/'
 	import TransitionRouter from './page-transitions/router.js'
 	import { initScroll, locoScroll, stopScroll } from './base/scroll.js'
@@ -15,7 +15,7 @@ import { initLazyLoad } from './base/lazy-Load'
 
 const initApp = () => {
 	initPage()
-	<% if (locomotive === 'yes') { %>
+	<% if (smoothscroll === 'yes') { %>
 
 	initScroll()
 	if (!isIE) {

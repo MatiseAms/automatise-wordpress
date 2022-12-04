@@ -9,7 +9,7 @@
  * @since        1.0
  */
 ?>
-<% if (locomotive === 'yes') { %>
+<% if (smoothscroll === 'yes') { %>
 				</main>
 			</div>
 		</div>

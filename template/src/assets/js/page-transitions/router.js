@@ -1,4 +1,4 @@
-<% if (locomotive === 'yes') { %>
+<% if (smoothscroll === 'yes') { %>
 
 import Highway from '@dogstudio/highway'
 import gsap from 'gsap'

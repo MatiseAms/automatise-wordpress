@@ -74,8 +74,8 @@ module.exports = {
 				default: 'normal'
 			},
 			{
-				name: 'locomotive',
-				message: 'Add locomotive scroll?',
+				name: 'smoothscroll',
+				message: 'Add smooth scroll with Lenis?',
 				type: 'list',
 				choices: ['yes', 'nope'],
 				default: 'yes'
@@ -149,7 +149,7 @@ module.exports = {
 				'webpack@5.56.0',
 				'webpack-cli@4.8.0',
 				'core-js@3.18.1',
-				'locomotive-scroll@4.1.3',
+				'@studio-freight/lenis"@^0.2.4',
 				'gsap@3.7.1',
 				'@dogstudio/highway@2.2.1'
 			],
