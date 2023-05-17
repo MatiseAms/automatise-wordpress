@@ -9,7 +9,6 @@
   ],
   "require": {
     "johnpbloch/wordpress": "*",
-    "wpackagist-plugin/mailgun": "*",
     "wpackagist-plugin/tiny-compress-images": "*"
   },
   "extra": {

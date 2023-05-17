@@ -1,9 +1,9 @@
 {
 	"name": "automatise-wordpress",
 	"version": "1.2.11",
-	"description": "Create Matise Wordpress.",
+	"description": "Create Automatise Wordpress.",
 	"engines": {
-		"node": "^13"
+		"node": "^18"
 	},
 	"bin": "cli.js",
 	"files": [
@@ -16,9 +16,9 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"headless\"}'",
-		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\"}'",
-		"try:smoothscroll": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"mailgun\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true}'",
+		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"headless\"}'",
+		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\"}'",
+		"try:smoothscroll": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {

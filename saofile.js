@@ -55,11 +55,6 @@ module.exports = {
 				default: `My ${superb.random()} Automatise Wordpress project`
 			},
 			{
-				name: 'mailgun',
-				message: 'Mailgun api key',
-				default: 'key-undefined'
-			},
-			{
 				name: 'author',
 				message: 'Author name',
 				type: 'string',
@@ -113,7 +108,7 @@ module.exports = {
 				'browser-sync-webpack-plugin@2.3.0',
 				'eslint@7.32.0',
 				'eslint-loader@4.0.2',
-				'matise-gryd@1.1.8',
+				'matise-gryd',
 				'@babel/core@7.15.5',
 				'@babel/preset-env@7.16.4',
 				'autoprefixer@10.3.6',
@@ -131,7 +126,7 @@ module.exports = {
 				'eslint-plugin-prettier@4.0.0',
 				'file-loader@6.2.0',
 				'mini-css-extract-plugin@2.3.0',
-				'node-sass@6.0.1',
+				'sass',
 				'postcss-alias@2.0.0',
 				'postcss-assets@6.0.0',
 				'postcss-center@1.1.0',
@@ -148,10 +143,10 @@ module.exports = {
 				'stylelint-webpack-plugin@3.0.1',
 				'webpack@5.56.0',
 				'webpack-cli@4.8.0',
-				'core-js@3.18.1',
-				'@studio-freight/lenis@^0.2.4',
-				'gsap@3.7.1',
-				'@dogstudio/highway@2.2.1'
+				'core-js',
+				'@studio-freight/lenis',
+				'gsap',
+				'@dogstudio/highway'
 			],
 			saveDev: true
 		})
