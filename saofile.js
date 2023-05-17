@@ -134,7 +134,7 @@ module.exports = {
 				'postcss-sass-loader@1.1.0',
 				'postcss-size@4.0.1',
 				'postcss-sprites@4.2.1',
-				'postcss-svg@3.0.0',
+				'postcss-svg@2.2.0',
 				'postcss-vmin@3.0.0',
 				'sass-loader@12.1.0',
 				'style-loader@3.3.0',
