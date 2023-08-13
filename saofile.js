@@ -123,14 +123,14 @@ module.exports = {
 				message: 'Add smooth scroll with Lenis?',
 				type: 'list',
 				choices: [true, false],
-				default: true
+				default: 'true'
 			},
 			{
 				name: 'three',
 				message: 'Add three js packages and webpack configuration?',
 				type: 'list',
 				choices: [true, false],
-				default: true
+				default: 'true'
 			}
 		]
 	},
