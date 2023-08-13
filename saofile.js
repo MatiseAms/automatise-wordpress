@@ -160,7 +160,6 @@ module.exports = {
 				'@swup/progress-plugin',
 				'@swup/scripts-plugin',
 				'swup'])
-				console.log(packages);
 		}
 		if (this._answers.three == 'true') {
 			packages.push(...['glslify', 'glslify-import', 'glslify-loader', 'raw-loader', 'three'])
