@@ -1,6 +1,6 @@
 
 import 'core-js/stable'
-<% if (smoothscroll) { %>
+<% if (smoothscroll == 'true') { %>
 	import { initRouter } from './router/index'
 	import { TransitionBasic } from './router/transitions/transition-basic'
 	export let transitionBasic
@@ -14,7 +14,7 @@ import { initLazyLoad } from './base/lazy-load'
 
 const initApp = () => {
 	initPage()
-	<% if (smoothscroll) { %>
+	<% if (smoothscroll == 'true') { %>
 	initRouter()
 	initScroll()
 	<% } %>
@@ -22,7 +22,7 @@ const initApp = () => {
 	
 	export const initPage = () => {
 		// Enter functions to init on page init
-		<% if (smoothscroll) { %> transitionBasic = new TransitionBasic() <% } %>
+		<% if (smoothscroll == 'true') { %> transitionBasic = new TransitionBasic() <% } %>
 		initLazyLoad()
 	}
 	

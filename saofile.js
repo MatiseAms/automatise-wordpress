@@ -122,14 +122,14 @@ module.exports = {
 				name: 'smoothscroll',
 				message: 'Add smooth scroll with Lenis?',
 				type: 'list',
-				choices: [true, false],
+				choices: ['true', 'false'],
 				default: 'true'
 			},
 			{
 				name: 'three',
 				message: 'Add three js packages and webpack configuration?',
 				type: 'list',
-				choices: [true, false],
+				choices: ['true', 'false'],
 				default: 'true'
 			}
 		]
@@ -152,7 +152,7 @@ module.exports = {
 	],
 	async completed() {
 		this.gitInit()
-		if (this._answers.smoothscroll) {
+		if (this._answers.smoothscroll == 'true') {
 			packages.push(...['@studio-freight/lenis',
 				'@swup/body-class-plugin',
 				'@swup/js-plugin',
@@ -162,7 +162,7 @@ module.exports = {
 				'swup'])
 				console.log(packages);
 		}
-		if (this._answers.three) {
+		if (this._answers.three == 'true') {
 			packages.push(...['glslify', 'glslify-import', 'glslify-loader', 'raw-loader', 'three'])
 		}
 		await this.npmInstall({

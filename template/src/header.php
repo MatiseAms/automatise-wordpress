@@ -47,11 +47,9 @@
 		</div>
 	</header>
 <% } %>
-<% if (smoothscroll) { %>
-	<div data-router-wrapper>
-		<div data-router-view="page" <?=body_class();?>>
-			<div data-scroll-wrapper data-scroll-content class="smooth-scroll">
-				<main data-scroll-container>
+<% if (smoothscroll == 'true') { %>
+			<div data-scroll-wrapper data-scroll-content class="smooth-scroll" data-router-wrapper>
+				<main id="main" class="app-transition-fade" data-router-view="page" data-scroll-container>
 <% } else { %>
 	<main>
 <% } %>

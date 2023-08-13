@@ -1,5 +1,5 @@
 // Using Smooth Scroll from Lenis https://lenis.studiofreight.com/
-<% if (smoothscroll) { %>
+<% if (smoothscroll == 'true') { %>
 import Lenis from '@studio-freight/lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'

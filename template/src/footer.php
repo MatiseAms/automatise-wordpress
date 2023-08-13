@@ -9,10 +9,8 @@
  * @since        1.0
  */
 ?>
-<% if (smoothscroll) { %>
-				</main>
-			</div>
-		</div>
+<% if (smoothscroll == 'true') { %>
+		</main>
 	</div>
 <% } else { %>
 </main>

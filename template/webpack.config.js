@@ -62,7 +62,7 @@ module.exports = {
 					'eslint-loader'
 				]
 			},
-			<% if (three) { %> 
+			<% if (three == 'true') { %> 
 			{
 				test: /\.(glsl|vs|fs|vert|frag)$/,
 				exclude: /node_modules/,
