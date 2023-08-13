@@ -3,7 +3,7 @@ name: Deploy to production
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -16,10 +16,10 @@ jobs:
       - uses: MatiseAms/checkout@master
 
     # Build
-      - name: Setup Node.js 13.x
+      - name: Setup Node.js 16.17.1
         uses: MatiseAms/setup-node@master
         with:
-          node-version: 13.x
+          node-version: 16.17.1
       - name: npm install
         run: npm ci
         env:
@@ -38,5 +38,5 @@ jobs:
     #     env:
     #       METHOD: sftp
     #       LOCAL_DIR: dist/wp-content/themes/[theme_name]
-    #       REMOTE_DIR: org-matise/[flywheel_project_name]/wp-content/themes/[theme_name]
+    #       REMOTE_DIR: [flywheel-org]/[flywheel_project_name]/wp-content/themes/[theme_name]
     #       ARGS: --verbose

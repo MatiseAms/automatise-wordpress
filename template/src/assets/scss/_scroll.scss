@@ -1,4 +1,4 @@
-<% if (smoothscroll === 'yes') { %>
+<% if (smoothscroll) { %>
 [data-lazy-load] {
 	opacity: 0;
 	transition: opacity 0.4s ease-out;

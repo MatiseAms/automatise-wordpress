@@ -19,6 +19,7 @@
 		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"headless\"}'",
 		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\"}'",
 		"try:smoothscroll": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true}'",
+		"try:three": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true,\"three\":true}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {

@@ -47,7 +47,7 @@
 		</div>
 	</header>
 <% } %>
-<% if (smoothscroll === 'yes') { %>
+<% if (smoothscroll) { %>
 	<div data-router-wrapper>
 		<div data-router-view="page" <?=body_class();?>>
 			<div data-scroll-wrapper data-scroll-content class="smooth-scroll">
