@@ -22,7 +22,7 @@ const initApp = () => {
 	
 	export const initPage = () => {
 		// Enter functions to init on page init
-		<% if (smoothscroll == 'true') { %> transitionBasic = new TransitionBasic() <% } %>
+		<% if (smoothscroll == 'true') { %>transitionBasic = new TransitionBasic() <% } %>
 		initLazyLoad()
 	}
 	
