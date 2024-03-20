@@ -185,15 +185,15 @@ module.exports = {
 		if (this._answers.extension == 'valet') {
 			console.log('	- Setup valet')
 			console.log(`		${chalk.hex('#ff69b4')('npm run valet')}`)
-			console.log('	- Start dev')
-			console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
 		} else {
-			console.log('	- Start dev')
-			console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
+			console.log('	- Setup for Local or create a dist folder in the root by hand')
+			console.log(`		${chalk.hex('#ff69b4')('npm run setup')}`)
 			console.log('	- Install '+ chalk.bold('Local')+ ' by Flywheel -> https://localwp.com/')
 			console.log('	- Create a new site with the name you entered ("' + chalk.hex('#ff69b4').bold(this._answers.name) + '")')
 			console.log('	- Open advanced options and link to the dist folder')
 		}
+		console.log('	- Start dev')
+		console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
 		console.log('	- Install wordpress')
 		console.log('	- Activate your theme')
 		console.log('	- If you have wp cli installed you can use:')
