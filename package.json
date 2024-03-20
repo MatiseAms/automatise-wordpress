@@ -1,6 +1,6 @@
 {
 	"name": "automatise-wordpress",
-	"version": "1.2.24",
+	"version": "1.2.25",
 	"description": "Create Automatise Wordpress.",
 	"engines": {
 		"node": "^18"
