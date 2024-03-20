@@ -77,7 +77,7 @@ define('WPLANG', '');
 if (!defined('WP_SITEURL')) {
 	<% if (extension == 'valet') { %>
 	define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME'].'/wordpress');
-	<% } else %>
+	<% } else { %>
 	define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME']);
 <% } %>
 }
