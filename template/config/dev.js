@@ -3,4 +3,4 @@ module.exports = {
 	mode: 'development',
 	themeName: '<%= packageName %>',
 	publicPath: '/wp-content/themes/<%= packageName %>/assets/',
-};
+}

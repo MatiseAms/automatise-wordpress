@@ -4,7 +4,11 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const glob = require('glob')
-const distFolder = <% if (extension == 'valet') { 'dist' } else { 'dist/app/public/' } %>
+<% if (extension == 'valet') { %>
+	const distFolder = 'dist'
+<% } else { %>
+	const distFolder = 	'dist/app/public/' 
+<% } %>
 const config = require('./config/latest.js')
 
 const {

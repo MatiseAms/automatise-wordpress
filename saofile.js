@@ -2,6 +2,9 @@ const superb = require('superb')
 const axios = require('axios')
 const chalk = require('chalk')
 
+console.log(chalk);
+// const customChalk = new chalk({level: 2});
+
 const getSalts = async () => {
 	let response = await axios.get('https://api.wordpress.org/secret-key/1.1/salt')
 	return response.data
@@ -181,15 +184,23 @@ module.exports = {
 		console.log()
 		console.log(chalk.bold('  To get started:\n'))
 		console.log('	- Go to project dir (if not already present)')
-		console.log(`		${chalk.magenta(`cd ${this._answers.packageName}`)}`)
-		console.log('	- Setup valet')
-		console.log(`		${chalk.magenta('npm run valet')}`)
-		console.log('	- Start dev')
-		console.log(`		${chalk.magenta('npm run dev')}`)
+		console.log(`		${chalk.hex('#ff69b4')(`cd ${this._answers.packageName}`)}`)
+		if (this._answers.extension == 'valet') {
+			console.log('	- Setup valet')
+			console.log(`		${chalk.hex('#ff69b4')('npm run valet')}`)
+			console.log('	- Start dev')
+			console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
+		} else {
+			console.log('	- Start dev')
+			console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
+			console.log('	- Install '+ chalk.bold('Local')+ ' by Flywheel -> https://localwp.com/')
+			console.log('	- Create a new site with the name you entered ("' + chalk.hex('#ff69b4').bold(this._answers.name) + '")')
+			console.log('	- Open advanced options and link to the dist folder')
+		}
 		console.log('	- Install wordpress')
 		console.log('	- Activate your theme')
 		console.log('	- If you have wp cli installed you can use:')
-		console.log(`		${chalk.magenta(`wp theme activate ${this._answers.packageName}`)}`)
+		console.log(`		${chalk.hex('#ff69b4')(`wp theme activate ${this._answers.packageName}`)}`)
 		console.log('	- Start developing!')
 		console.log()
 	}
