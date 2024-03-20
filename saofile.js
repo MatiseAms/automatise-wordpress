@@ -2,9 +2,6 @@ const superb = require('superb')
 const axios = require('axios')
 const chalk = require('chalk')
 
-console.log(chalk);
-// const customChalk = new chalk({level: 2});
-
 const getSalts = async () => {
 	let response = await axios.get('https://api.wordpress.org/secret-key/1.1/salt')
 	return response.data
