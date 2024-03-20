@@ -112,6 +112,13 @@ module.exports = {
 				store: true
 			},
 			{
+				name: 'extension',
+				message: 'Will you use Local (.local) or valet(.test)?',
+				type: 'list',
+				choices: ['local', 'test'],
+				default: 'local'
+			},
+			{
 				name: 'wordpressType',
 				message: 'Do you want an API website or WordPress a website?',
 				type: 'list',

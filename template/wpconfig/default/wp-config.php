@@ -100,6 +100,8 @@ if (!defined('WP_DEBUG')) {
 
 define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
+define( 'WP_ENVIRONMENT_TYPE', 'local' );
+
 /* That's all, stop editing! Happy blogging. */
 
 /* Absolute path to the WordPress directory. */

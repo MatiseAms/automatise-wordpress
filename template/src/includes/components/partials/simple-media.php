@@ -2,11 +2,12 @@
 $media_type = $args['type'];
 $media = '';
 $ratio = 'auto';
+$size = isset($args['size']) ? $args['size'] : 'large';
 if ($media_type == 'video') {
   $media = $args['url'];
   $ratio = $args['height'] / $args['width'];
 } else {
-  $media = $args['sizes']['large'];
+  $media = $args['sizes'][$size];
   $ratio = $args['height'] / $args['width'];
 }
 ?>

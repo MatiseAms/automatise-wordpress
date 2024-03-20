@@ -4,11 +4,13 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const glob = require('glob')
+const distFolder = <% if (extension == 'valet') { 'dist' } else { 'dist/app/public/' } %>
 const config = require('./config/latest.js')
 
 const {
 	PORT
 } = process.env
+
 const entry = glob.sync('**/*.js', {
 	cwd: './src/includes/components/acf-blocks'
 }).reduce(function(obj, el) {
@@ -23,7 +25,7 @@ module.exports = {
 	entry,
 	context: path.resolve(__dirname, 'src'),
 	output: {
-		path: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/assets`),
+		path: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}/assets`),
 		filename: '[name].js',
 		publicPath: config.publicPath,
 	},
@@ -145,19 +147,19 @@ module.exports = {
 		new CopyWebpackPlugin({
 			patterns: [{
 					from: '**/*.php',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}`),
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}`),
 					globOptions: {
 						ignore: ['includes/components/acf-blocks/*.js', 'includes/components/acf-blocks/*.css'],
 					}
 				},
 				{
 					from: '**/*',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/assets/img`),
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}/assets/img`),
 					context: './assets/img'
 				},
 				{
 					from: '**/*.svg',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/svgs`),
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}/includes/svgs`),
 					context: './includes/svgs',
 					globOptions: {
 						ignore: ['generate.php']
@@ -165,12 +167,12 @@ module.exports = {
 				},
 				{
 					from: '**/*.json',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}/includes/field-groups`),
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}/includes/field-groups`),
 					context: './includes/field-groups'
 				},
 				{
 					from: 'style.css',
-					to: path.resolve(__dirname, `dist/wp-content/themes/${config.themeName}`),
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}`),
 				}
 			]
 		}),
