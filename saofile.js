@@ -28,7 +28,7 @@ const packages = [
 	'eslint',
 	'eslint-loader',
 	'eslint-plugin-only-warn',
-	'eslint-plugin-prettier',
+	'eslint-plugin-prettier@^4.0.0',
 	'file-loader',
 	'glob',
 	'gsap',
