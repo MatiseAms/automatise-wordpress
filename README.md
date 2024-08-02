@@ -21,3 +21,8 @@ npx automatise-wordpress <my-project>
 ## Valet+
 
 This project is set up to work with Valet+
+
+## Updating
+```bash
+npm version patch -m "Upgrade to %s; "
+```
