@@ -161,7 +161,7 @@ module.exports = {
 		this.gitInit()
 		if (this._answers.smoothscroll == 'true') {
 			packages.push(...[
-				'@studio-freight/lenis',
+				'lenis',
 				'@swup/body-class-plugin',
 				'@swup/js-plugin',
 				'@swup/preload-plugin',

@@ -177,6 +177,10 @@ module.exports = {
 				{
 					from: 'style.css',
 					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}`),
+				},
+				{
+					from: 'screenshot.jpg',
+					to: path.resolve(__dirname, `${distFolder}/wp-content/themes/${config.themeName}`),
 				}
 			]
 		}),

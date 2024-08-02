@@ -1,6 +1,6 @@
 // Using Smooth Scroll from Lenis https://lenis.studiofreight.com/
 <% if (smoothscroll == 'true') { %>
-import Lenis from '@studio-freight/lenis'
+import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
@@ -12,7 +12,7 @@ export const initScroll = () => {
 	lenisScroll = new Lenis({
 		duration: 1,
 		easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
-		smooth: window.innerWidth > 1024 ? true : false,
+		// smooth: window.innerWidth > 1024 ? true : false,
 		direction: 'vertical'
 	})
 
@@ -27,15 +27,17 @@ export const initScroll = () => {
 		} else {
 			header.classList.remove('has-background')
 		}
+		ScrollTrigger.update
 	})
 
-	document.querySelector('html').classList.remove('hide-overflow')
+	gsap.ticker.add((time)=>{
+		lenisScroll.raf(time * 1000)
+	})
 
-	function raf(time) {
-		lenisScroll.raf(time)
-		requestAnimationFrame(raf)
-	}
-	requestAnimationFrame(raf)
+	gsap.ticker.lagSmoothing(0)
+
+
+	document.querySelector('html').classList.remove('hide-overflow')
 
 	// In view class:
 	const inViewElements = [...document.querySelectorAll('[data-scroll]')]
