@@ -9,7 +9,7 @@
 Make sure you have [npx](https://www.npmjs.com/package/npx) installed (`npx` is shipped by default since NPM `5.2.0`)
 
 ```bash
-npx automatise-wordpress <my-project>
+npx automatise-wordpress@latest <my-project>
 ```
 
 ## Credits
@@ -22,7 +22,7 @@ npx automatise-wordpress <my-project>
 
 This project is set up to work with Local by Flywheel
 
-## Updating
+## Updating this package:
 ```bash
 npm version patch -m "Upgrade to %s; "
 ```

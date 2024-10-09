@@ -14,16 +14,7 @@ require_once('field-groups/acf.php');
 //===================
 require_once('settings/index.php');
 
-<% if (wordpressType === 'headless') { %>
-//===================
-// WP Core
-//===================
-require_once('wp-core/init.php');
-<% } %>
-
-<% if (wordpressType === 'normal') { %>
 //===================
 // Components and partials
 //===================
 require_once('svgs/generate.php');
-<% } %>

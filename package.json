@@ -16,11 +16,10 @@
 		"type": "git"
 	},
 	"scripts": {
-		"try:headless": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"headless\"}'",
-		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\"}'",
-		"try:smoothscroll": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true}'",
-		"try:three": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"wordpressType\":\"normal\",\"smoothscroll\":true,\"three\":true}'",
-		"try:local": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"extension\":\"local\",\"wordpressType\":\"normal\",\"smoothscroll\":true,\"three\":false}'",
+		"try:normal": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\"}'",
+		"try:smoothscroll": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"smoothscroll\":true}'",
+		"try:three": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"smoothscroll\":true,\"three\":true}'",
+		"try:local": "rm -rf fissa && node cli.js fissa '{\"packageName\":\"fissa\",\"name\":\"fissa\",\"description\":\"fissa\",\"author\":\"fissa\",\"smoothscroll\":true,\"three\":false}'",
 		"trypublish": "npm publish || true"
 	},
 	"dependencies": {

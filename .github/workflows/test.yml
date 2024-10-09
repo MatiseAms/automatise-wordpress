@@ -16,7 +16,6 @@ jobs:
     - name: npm run try
       run: |
         npm ci
-        npm run try:headless
         npm run try:normal
       env:
         CI: true

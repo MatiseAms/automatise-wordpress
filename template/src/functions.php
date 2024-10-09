@@ -48,11 +48,8 @@ function theme_scripts() {
 	wp_enqueue_style('theme-css', $include_url.'/assets/main.css', array(), date("is"), false);
 	wp_enqueue_script('theme-appjs', get_theme_file_uri( '/assets/main.js' ), array(), date("is"), true );
 }
-<% if (wordpressType === 'normal') { %>
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
-<% } else { %>
-add_action( 'admin_enqueue_scripts', 'theme_scripts' );
-<% } %>
+
 //===================
 // Includes folder includes
 //===================
