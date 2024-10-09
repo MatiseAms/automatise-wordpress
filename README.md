@@ -18,9 +18,9 @@ npx automatise-wordpress <my-project>
 - [Stephan Hoogland](https://www.shoogland.com/)
 - [Dennis Spierenburg](https://github.com/dipsaus9)
 
-## Valet+
+## Local
 
-This project is set up to work with Valet+
+This project is set up to work with Local by Flywheel
 
 ## Updating
 ```bash

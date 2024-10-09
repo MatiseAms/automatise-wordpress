@@ -71,7 +71,7 @@ module.exports = {
 		return [
 			{
 				name: 'packageName',
-				message: 'Package name (lowercase without whitespace) used for package name, valet and git',
+				message: 'Package name (lowercase without whitespace) used for package name, local and git',
 				default: this.outFolder,
 				filter: val => val.toLowerCase(),
 				validate: function (value) {
@@ -110,20 +110,6 @@ module.exports = {
 				type: 'string',
 				default: this.gitUser.name,
 				store: true
-			},
-			{
-				name: 'extension',
-				message: 'Will you use Local (.local) or valet(.test)?',
-				type: 'list',
-				choices: ['local', 'test'],
-				default: 'local'
-			},
-			{
-				name: 'wordpressType',
-				message: 'Do you want an API website or WordPress a website?',
-				type: 'list',
-				choices: ['normal', 'headless'],
-				default: 'normal'
 			},
 			{
 				name: 'smoothscroll',
@@ -175,7 +161,7 @@ module.exports = {
 				'glslify',
 				'glslify-import',
 				'glslify-loader',
-				'raw-loader', 
+				'raw-loader',
 				'three'
 			])
 		}
@@ -190,16 +176,12 @@ module.exports = {
 		console.log(chalk.bold('  To get started:\n'))
 		console.log('	- Go to project dir (if not already present)')
 		console.log(`		${chalk.hex('#ff69b4')(`cd ${this._answers.packageName}`)}`)
-		if (this._answers.extension == 'valet') {
-			console.log('	- Setup valet')
-			console.log(`		${chalk.hex('#ff69b4')('npm run valet')}`)
-		} else {
-			console.log('	- Setup for Local or create a dist folder in the root by hand')
-			console.log(`		${chalk.hex('#ff69b4')('npm run setup')}`)
-			console.log('	- Install '+ chalk.bold('Local')+ ' by Flywheel -> https://localwp.com/')
-			console.log('	- Create a new site with the name you entered ("' + chalk.hex('#ff69b4').bold(this._answers.packageName) + '")')
-			console.log('	- Open advanced options and link to the dist folder')
-		}
+
+		console.log('	- Setup for Local or create a dist folder in the root by hand')
+		console.log(`		${chalk.hex('#ff69b4')('npm run setup')}`)
+		console.log('	- Install ' + chalk.bold('Local') + ' by Flywheel -> https://localwp.com/')
+		console.log('	- Create a new site with the name you entered ("' + chalk.hex('#ff69b4').bold(this._answers.packageName) + '")')
+		console.log('	- Open advanced options and link to the dist folder')
 		console.log('	- Start dev')
 		console.log(`		${chalk.hex('#ff69b4')('npm run dev')}`)
 		console.log('	- Install wordpress')

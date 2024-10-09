@@ -74,12 +74,8 @@ define('WPLANG', '');
 * Set custom paths
 *
 */
-if (!defined('WP_SITEURL')) {
-	<% if (extension == 'valet') { %>
-	define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME'].'/wordpress');
-	<% } else { %>
-	define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME']);
-<% } %>
+if (!defined('WP_SITEURL')) {	
+define('WP_SITEURL', 'https://'.$_SERVER['SERVER_NAME']);
 }
 if (!defined('WP_HOME')) {
 	define('WP_HOME',    'https://'.$_SERVER['SERVER_NAME'].'/');

@@ -39,13 +39,8 @@ p.description {
 	}
 }
 
-.block-editor-block-types-list__list-item {
-	width: 50%;
-}
 
 .file-icon {
-	background-color: green;
-
 	img:not([src*="/media/video.png"]) {
 		position: relative;
 		top: rem(-10);
