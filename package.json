@@ -28,7 +28,6 @@
 		"sao": "1.7.1",
 		"superb": "^4.0.0"
 	},
-	"devDependencies": {},
 	"authors": [
 		"Cyd Stumpel <info@cydstumpel.nl>",
 		"Dennis Spierenburg <dennis@matise.nl>",
