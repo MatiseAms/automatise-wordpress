@@ -12,9 +12,6 @@
 define('COMMIT', '<commit>');
 define('BRANCH', '<branch_ref>');
 
-define('WORDPRESS_TYPE', '<%= wordpressType %>');
-
-
 if (BRANCH === 'refs/heads/master'){
 	define('MATISE_ENVIRONMENT', 'production');
 } else if (BRANCH === 'refs/heads/staging'){
