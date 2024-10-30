@@ -2,7 +2,6 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
 const glob = require('glob')
 const distFolder = 	'dist/app/public/' 
 const config = require('./config/latest.js')
@@ -138,12 +137,6 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),
-		new StylelintPlugin({
-			configFile: './.stylelintrc.config.js',
-			fix: true,
-			emitWarning: true,
-			emitError: true
-		}),
 		new CopyWebpackPlugin({
 			patterns: [{
 					from: '**/*.php',
