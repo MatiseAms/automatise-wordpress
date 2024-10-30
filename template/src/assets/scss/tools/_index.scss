@@ -1,3 +1,33 @@
 @import "../color/index.scss";
 @import '../variables/index.scss';
 @import '~matise-gryd/gryd-index.scss';
+
+$design-size: 1440;
+$col: $design-size / 24;
+
+@function max-grid($value) {
+	$values: null;
+	@if length($value) > 1 {
+		@each $size in $value {
+			$v: rem((math.div($size, $design-size) * $max-size));
+			$values: $values #{$v};
+		}
+	} @else {
+		$values: rem((math.div($value, $design-size) * $max-size));
+	}
+	@return $values;
+}
+
+// Design size grid
+@function ds-grid($design-px) {
+  $values: null;
+	@if length($design-px) > 1 {
+		@each $size in $design-px {
+			$v: grid(math.div($size, $col));
+			$values: $values #{$v};
+		}
+	} @else {
+		$values: grid(math.div($design-px, $col));
+	}
+	@return $values;
+} 
